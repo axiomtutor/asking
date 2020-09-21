@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <bookmarks list=""/>
+  <node name="Prehistory" unique_id="1" prog_lang="latex" tags="" readonly="0" custom_icon_id="35" is_bold="0" foreground="" ts_creation="1600705570" ts_lastsave="1600706703">
+    <rich_text>TODO: Identify tags
+Identify time periods</rich_text>
+    <node name="Australopithecine" unique_id="3" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1600705873" ts_lastsave="1600707143">
+      <node name="Origin and destination" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600706816" ts_lastsave="1600708816">
+        <rich_text>TODO: The origins of australopithecus and their relationship to humans.
+
+</rich_text>
+      </node>
+      <node name="Physiological changes and their evolutionary causes" unique_id="19" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600706972" ts_lastsave="1600706972"/>
+      <node name="Social structure" unique_id="20" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600707080" ts_lastsave="1600707081">
+        <rich_text>TODO: Gender properties
+Group sizes
+Heirarchy
+</rich_text>
+      </node>
+      <node name="Knowledge, belief, language, tools" unique_id="21" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600707143" ts_lastsave="1600707143"/>
+    </node>
+    <node name="Homo" unique_id="4" prog_lang="latex" tags="" readonly="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1600705906" ts_lastsave="1600705906">
+      <node name="Early Homo" unique_id="23" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600707203" ts_lastsave="1600707264">
+        <rich_text>TODO: Don't get distracted, focus on beliefs, tools, etc.</rich_text>
+      </node>
+      <node name="H. erecuts" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600707303" ts_lastsave="1600707307">
+        <rich_text>TODO: Fire, global expansion, tools, </rich_text>
+      </node>
+      <node name="H. neanderthalensis" unique_id="25" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600707381" ts_lastsave="1600707386">
+        <rich_text>TODO: Don't get distracted, focus on language, religion, tools, music.</rich_text>
+      </node>
+    </node>
+    <node name="Homo sapiens" unique_id="7" prog_lang="latex" tags="" readonly="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1600706132" ts_lastsave="1600706132">
+      <node name="Origins and expansion" unique_id="27" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600707617" ts_lastsave="1600707840">
+        <rich_text>TODO: boats, spears, axes, celestial navigation, seasonal hunting and foraging, medicine, games, social structure</rich_text>
+      </node>
+      <node name="Domestication and sedentism" unique_id="6" prog_lang="latex" tags="" readonly="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1600705997" ts_lastsave="1600707774">
+        <rich_text>TODO: agriculture?
+bow and arrow
+farming equipment
+pottery
+metals
+</rich_text>
+      </node>
+      <node name="Early civilization" unique_id="13" prog_lang="latex" tags="" readonly="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1600706216" ts_lastsave="1600707953">
+        <rich_text>TODO: Religion, writing, commerce, math, pre-physics, gender, heirarchy, disease.</rich_text>
+      </node>
+    </node>
+  </node>
+  <node name="Ancient Civilization" unique_id="15" prog_lang="latex" tags="" readonly="0" custom_icon_id="35" is_bold="0" foreground="" ts_creation="1600706365" ts_lastsave="1600706365">
+    <node name="Mesopotamia" unique_id="28" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708177" ts_lastsave="1600708177"/>
+    <node name="Egypt" unique_id="29" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708192" ts_lastsave="1600708192">
+      <rich_text>
+
+</rich_text>
+    </node>
+    <node name="China" unique_id="30" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708200" ts_lastsave="1600708200">
+      <rich_text>
+
+</rich_text>
+    </node>
+    <node name="India" unique_id="31" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708249" ts_lastsave="1600708249">
+      <rich_text>
+
+</rich_text>
+    </node>
+    <node name="Sub-Saharan Africa" unique_id="32" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708286" ts_lastsave="1600708286"/>
+    <node name="The Andes and Central America" unique_id="33" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708301" ts_lastsave="1600708301"/>
+  </node>
+  <node name="The Classical Period" unique_id="16" prog_lang="latex" tags="" readonly="0" custom_icon_id="35" is_bold="0" foreground="" ts_creation="1600706441" ts_lastsave="1600706441">
+    <node name="India" unique_id="34" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708358" ts_lastsave="1600708358"/>
+    <node name="Greece" unique_id="35" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708369" ts_lastsave="1600708369">
+      <rich_text>
+
+</rich_text>
+    </node>
+    <node name="China" unique_id="36" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708426" ts_lastsave="1600708426">
+      <rich_text>
+
+</rich_text>
+    </node>
+    <node name="Persia" unique_id="37" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708489" ts_lastsave="1600708489"/>
+  </node>
+  <node name="The Post-Classical Period" unique_id="17" prog_lang="latex" tags="" readonly="0" custom_icon_id="35" is_bold="0" foreground="" ts_creation="1600706732" ts_lastsave="1600706732">
+    <node name="Greece" unique_id="38" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708506" ts_lastsave="1600708506">
+      <rich_text>
+
+</rich_text>
+    </node>
+    <node name="Mali" unique_id="39" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708560" ts_lastsave="1600708560"/>
+    <node name="Persia" unique_id="40" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708584" ts_lastsave="1600708584"/>
+    <node name="China" unique_id="41" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708594" ts_lastsave="1600708594"/>
+    <node name="The Maya" unique_id="42" prog_lang="latex" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1600708627" ts_lastsave="1600708733"/>
+  </node>
+</cherrytree>
