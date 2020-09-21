@@ -1,5 +1,6 @@
 import sys
 from pathlib import PurePosixPath, Path
+import re
 
 '''
 Establishing file paths, open files
@@ -8,7 +9,7 @@ mymdPath = PurePosixPath(Path.cwd() / sys.argv[1])
 mymd = open(mymdPath, "r")
 
 # Slice the directory where the mymd file is located.
-dir = mymdPath.parent
+mymdDir = mymdPath.parent
 # Slice the file name
 name = mymdPath.name
 
@@ -21,37 +22,39 @@ html = open(dir / (name[:-4] + ".html"), "w")
 '''
 Write the HTML top matter
 '''
-# First several lines always copy over
+
+def relativeTOabsolutePATH(line):
+    '''
+    Replaces any hrefs with absolute paths identified above.
+    '''
+    # for every href
+    for match in re.findall('href="(.+?)"', line):
+        print(line[:10])
+        # the address it should have is relative to the folder holding the mymd
+        addy = Path.resolve(mymdDir / match[6:-1]))
+        line.replace(match, addy)
+    return line
+
+# Lines 1 to 11 copy over
 for i in range(10):
-    html.write(template.readline())
-
-htmlLine = '    <link rel="stylesheet" href="' + askingPath + '/css/notes.css">'
-html.write(htmlLine)
-template.readline()
-
+    line = relativeTOabsolutePATH(template.readline())
+    html.write(line)
+# Line 12 insert title
 mymdLine = mymd.readline()
 if not (mymdLine[:8] == 'Title - '):
     print("\nTitle not formatted properly.  It should look like 'Title - ...'")
 htmlLine = '    <title>' + mymdLine[8:] + '</title>'
 html.write(htmlLine)
 template.readline()
+# lines 13 to 63
+for i in range(51):
+    line = relativeTOabsolutePATH(template.readline())
+    html.write(line)
 
 '''
-Copy over the remaining top matter and code for the navbar
+Process the mymd
 '''
-# lines 13 to 19
-for i in range(7):
-    html.write(template.readline())
-# line 20
-htmlLine = '          <a href="' + askingPath + \
-  'html/notes/index.html">Notes</a> <a href="' + askingPath + \
-  'community/">Community</a>'
-html.write(htmlLine)
-template.readline()
-# lines 21 to 25
-for i in range(5):
-    html.write(template.readline())
-
+while
 
 '''
 Close it up!
