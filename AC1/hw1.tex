@@ -1,0 +1,256 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ marvosym }
+
+\title{Advanced Calculus, Homework 1}
+\author{Adam Frank}
+\date{August 2020}
+
+\begin{document}
+
+\maketitle
+
+{\Large \color{Sepia} Problem 1. Let $\{A_\alpha\}_{\alpha \in I}$ be an indexed collection of subsets of a set $X$.  Prove:
+
+a. $X\smallsetminus (\bigcup_{\alpha\in I}A_\alpha) = \bigcap_{\alpha\in I}(X\smallsetminus A_\alpha)$
+
+b. $X\smallsetminus (\bigcap_{\alpha\in I}A_\alpha) = \bigcup_{\alpha\in I}(X\smallsetminus A_\alpha)$
+
+}
+
+\vspace{1cm}
+
+(a.) We prove containment in both directions.  For $X\smallsetminus (\bigcup_{\alpha\in I})A_\alpha \subseteq \bigcap_{\alpha\in I}(X\smallsetminus A_\alpha)$ start by letting $x\in X\smallsetminus (\bigcup_{\alpha\in I}A_\alpha)$.  Then certainly $x\in X$ and $x\not\in \bigcup_{\alpha\in I}A_\alpha$.  This second fact entails that $x\not\in A_\alpha$ for every $\alpha\in I$.  Hence $x\in X\smallsetminus A_\alpha$ for every $\alpha\in I$. Then $x\in \bigcap_{\alpha\in I}(X\smallsetminus A_\alpha)$.
+
+In fact every step above is an ``if and only if'' which proves containment in the reverse direction.
+
+\vspace{1cm}
+
+(b.) The proof is nearly identical to part (a.).  If $x\in X\smallsetminus (\bigcap_{\alpha\in I}A_\alpha)$ then $x\in X$ and $x\not\in \bigcap_{\alpha\in I}A_\alpha$.  So $x\not\in A_\alpha'$ for at least one $\alpha'\in I$.  Then $x\in X\smallsetminus A_\alpha'$ for that $\alpha'$.  Then $x\in \bigcup_{\alpha\in I} (X\smallsetminus A_\alpha)$.  Every step is an ``if and only if'' and hence we have containment in both directions.
+
+\pagebreak
+
+{\Large \color{Sepia} Problem 2. Compute:
+
+(a.) $\bigcap_{n=1}^\infty [n,\infty)$
+
+(b.) $\bigcup_{n=1}^\infty [0,2-1/n]$
+
+(c.) $\displaystyle \limsup_{n\rightarrow \infty}(-1+(-1)^n/n, 1+(-1)^n/n)$
+
+(d.) $\displaystyle \liminf_{n\rightarrow \infty}(-1+(-1)^n/n, 1+(-1)^n/n)$
+}
+
+\vspace{1cm}
+
+(a.) $\emptyset$
+
+\vspace{1cm}
+
+(b.) $[0,2)$
+
+\vspace{1cm}
+
+(c.) $1$
+
+\vspace{1cm}
+
+(d.) $-1$
+
+\pagebreak
+
+{\Large \color{Sepia} Problem 3. Rudin page 21 problem 1.  (A rational plus irrational, and a rational times irrational, is always irrational.}
+
+\vspace{1cm}
+
+Let $r\in \mathbb Q$ and $r\ne 0$.  Also let $x\in \mathbb R\smallsetminus \mathbb Q$.  We first prove that $r+x\not\in \mathbb Q$ by contradiction.
+
+Suppose $r+x\in \mathbb Q$ so that there are $p,q\in \mathbb Z$ with $q\ne 0$ and $r+x = p/q$.  Since also $r\in \mathbb Q$ we know there are $a,b\in \mathbb Z$ with $b\ne 0$ such that $r = a/b$.  Then
+
+$$ x = \frac p q - \frac a b = \frac{pb-qa}{qb} $$
+
+Now $pb-qa\in \mathbb Z$ and $qb\in\mathbb Z$.  Since $q\ne 0\ne b$ then $qb\ne 0$ and hence $x\in \mathbb Q$ contrary to our assumption that $x\not\in \mathbb Q$.  \Lightning
+
+\vspace{1cm}
+
+Now to show that $rx\not\in \mathbb Q$ we again assume $rx\in\mathbb Q$ for contradiction.  Then $rx = p/q$ with the obvious constraints on $p$ and $q$.  We again use $r=a/b$.  Then
+
+$$ x = \frac{pb}{qa} $$
+
+Now $q\ne 0\ne a$ so $qa\ne 0$ and hence $x\in \mathbb Q$ contradicting $x\not\in\mathbb Q$.  \Lightning
+
+\pagebreak
+
+{\Large \color{Sepia} Problem 4. Rudin page 22, problem 2.  (Prove there is no rational whose square is 12.)}
+
+\vspace{1cm}
+
+Suppose for contradiction that there are $p,q\in \mathbb Z$ with $q\ne 0$ and both numbers $p$ and $q$ are coprime. And assume $(p/q)^2 = 12$ so that
+
+$$ p^2 = 12q^2 $$
+
+hence $p^2$ has a factor of 3 since $12q^2$ does.  But then $p$ has a factor of 3 and therefore $p^2$ has two factors of 3.  Say $p^2 = 9k$ so that
+
+$$ 9k = 12q^2 $$
+
+and hence
+
+$$ 3k = 4q^2 $$
+
+This then entails that $q^2$ has a factor of 3, since 4 does not.  But then $q$ has a factor of 3.  We then get the contradiction that $(p,q)=1$ and $(p,q)\geq 3$.  \Lightning
+
+\pagebreak
+
+{\Large \color{Sepia} Problem 5. Suppose $f:X \rightarrow Y$ and $B\subseteq Y$.  Prove that $f\Big(f^{-1}(B)\Big) \subseteq B$ and equality holds if $f$ is onto.  }
+
+\hspace{1cm}
+
+Let $y\in f\Big(f^{-1}(B)\Big)$ so that by definition there is some $x\in f^{-1}(B)$ such that $f(x) = y$.  We want to then show that $y\in B$.  Since we have $x\in f^{-1}(B)$ we know that $f(x) \in B$ but then $y=f(x)\in B$. $\Box$
+
+\vspace{1cm}
+
+For the second part, suppose $f$ is onto.  Then let $b\in B$ so that we'd like to prove $b\in f\Big(f^{-1}(B)\Big)$.  Since $f$ is onto we know there is some $x\in X$ such that $f(x) = b$.  By definition $x\in f^{-1}(B)$.  Then $f(x)=b\in f\Big(f^{-1}(B)\Big).$ $\Box$
+
+\pagebreak
+
+{\Large \color{Sepia} Problem 6. Suppose $f:X\rightarrow Y$ and $\{A_\alpha\}_{\alpha\in I}$ is an indexed collection of
+subsets of a set $X$.  Prove $f\left(\bigcap_{\alpha\in I}A_\alpha\right) \subseteq \bigcap_{\alpha\in I}f(A_\alpha)$
+with equality if $f$ is one-to-one.}
+
+\vspace{1cm}
+
+Let $y\in f\Big(\bigcap_{\alpha\in I}A_\alpha\Big)$ so that there must be some $x\in \bigcap_{\alpha\in I}A_\alpha$ such that $f(x) = y$.  Then for all $\alpha\in I$ we have that $x\in A_{\alpha}$, and then $y\in f(A_{\alpha})$.  But then we have $y\in\bigcap_{\alpha\in I}f(A_\alpha)$.  $\Box$
+
+\vspace{1cm}
+
+Now for the second part assume that $f$ is one-to-one.  Also let $y \in \bigcap_{\alpha\in I}f(A_\alpha)$.  Then for each $\alpha\in I$ we have $y\in f(A_\alpha)$.  Because $f$ is one-to-one it has an inverse, and then $f^{-1}(y)\in A_\alpha$.  Thus we have $f^{-1}(y)\in \bigcap_{\alpha\in I}A_\alpha$ and since $f(f^{-1}(y)) = y$ we must have $y\in f(\bigcap_{\alpha\in I}A_\alpha)$.  $\Box$
+
+\pagebreak
+
+{\Large \color{Sepia} Problem 7. Prove $|a-b| \leq |a-c|+|c-d|+|d-b|$ for all $a,b,c,d\in\mathbb C$.}
+
+\vspace{1cm}
+
+This is the triangle inequality with two terms wiggled in.
+
+\begin{align*}
+ |a-b| &= |a-c+c-d+d-b| \\
+ &\leq |a-c|+|c-d+d-b| \\
+ &\leq |a-c|+|c-d|+|d-b|
+\end{align*}
+
+\pagebreak
+
+{\Large \color{Sepia} Problem 8. Rudin page 23, problem 12.  (Triangle inequality generalized to finite sums.)}
+
+\vspace{1cm}
+
+Proof by induction:  The case for two terms is the base-case and is the triangle inequality.
+
+For the inductive case, suppose the theorem has been proved up to $n$ terms.  Then
+
+\begin{align*}
+    |z_1+z_2+\dots +z_{n+1}| \leq |z_1+\dots +z_n|+|z_{n+1}|
+\end{align*}
+
+by a single application of the triangle inequality.  Then by the inductive hypothesis
+
+\begin{align*}
+    |z_1+\dots +z_n|+|z_{n+1}| \leq |z_1|+\dots +|z_{n+1}|
+\end{align*}
+
+Chaining these inequalities together gives the proof.
+
+\pagebreak
+
+{\Large \color{Sepia} Problem 9. Rudin page 23, problem 13.  (Reverse triangle inequality.)}
+
+\vspace{1cm}
+
+We use the triangle inequality
+
+\begin{align*}
+    |a+b| \leq |a|+|b|
+\end{align*}
+
+but with $a=x$ and $b=y-x$.  Then we have
+
+\begin{align*}
+    |x - (y-x)| \leq |x|+|y-x|
+\end{align*}
+
+which is
+
+\begin{align*}
+    |y| \leq |x|+|y-x|
+\end{align*}
+
+which entails
+
+\begin{align*}
+    |y|-|x| \leq |y-x| = |x-y|
+\end{align*}
+
+Now we could repeat the whole argument but with $a=y$ and $b=x-y$ to then obtain at the end
+
+\begin{align*}
+    |x|-|y| \leq |x-y|
+\end{align*}
+
+Thus if $|x|-|y| \geq 0$ then this second result proves $||x|-|y|| \leq |x-y|$.  And if $|x|-|y|<0$ then the first result proves it.  Hence in all cases the inequality holds. $\Box$
+
+\pagebreak
+
+{\Large \color{Sepia} Problem 10. Rudin page 23, problem 17.  (Polarization identity.)}
+
+\vspace{1cm}
+
+The proof merely expands everything in terms of the inner product, $|\vec x| = \vec x \cdot \vec x$.
+
+\begin{align*}
+    |\vec x + \vec y|^2 + |\vec x - \vec y|^2 &= (\vec x + \vec y)\cdot(\vec x + \vec y)+(\vec x - \vec y)\cdot(\vec x - \vec y) \\
+    &= \vec x\cdot \vec x + 2(\vec x\cdot\vec y) + \vec y \cdot \vec y + \vec x \cdot \vec x -2(\vec x \cdot \vec y) + \vec y \cdot \vec y \\
+    &= 2|\vec x|^2 + 2|\vec y|^2
+\end{align*}
+
+\pagebreak
+
+{\Large \color{Sepia} Problem 11. Let $y_1=6$ and $y_{n+1}=\frac{2y_n-6}{3}$ for all $n\in\mathbb N$.  Prove:
+
+(a.) $y_n > -6$ for all $n\in\mathbb N$
+
+(b.) $\{y_n\}$ is decreasing.
+}
+
+\vspace{1cm}
+
+(a.) We use induction where the base-case, $y_1=6>-6$.
+
+Now suppose the claim holds for all terms $y_n$ with $n\leq N$.  Then we show that $y_{N+1}>-6$.
+
+\begin{align*}
+    y_{N+1} = \frac{2y_N - 6}{3} > \frac{2(-6)-6}{3} = -6
+\end{align*}
+
+\vspace{1cm}
+
+(b.) We prove $y_{n+1} < y_n$ by induction on $n$.  In the base-case, since $y_1 = 6$ and $y_2 = \frac{2(6)-6}{3}=2$ then we clearly have $y_2 < y_1$.
+
+For the inductive case we suppose this holds for all $n\leq N$ and now prove that $y_{N+2} < y_{N+1}$.  The inequation
+
+\begin{align*}
+    y_{N+2} = \frac{2y_{N+1}-6}{3} < y_{N+1}
+\end{align*}
+
+holds if and only if
+
+\begin{align*}
+    -6 < y_{N+1}
+\end{align*}
+
+and since this is guaranteed by part (a.) we're done.  $\Box$
+
+
+\end{document}

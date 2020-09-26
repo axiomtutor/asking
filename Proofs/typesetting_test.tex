@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage, amsfonts, amsmath, amsthm, amssymb, array, enumerate, systeme, wasysym, mathrsfs, hyperref}
+
+\setlength\parindent{0pt} %disable automatic paragraph indentation
+
+\begin{document}
+\pagestyle{empty}
+
+ {\noindent \textbf{\large MA 630 - \LaTeX\ Typesetting Test}
+\vspace{.25in}
+
+Complete each of the typesetting exercises below. You may use any (course or external) resources that you like, but please complete the assignment \emph{on your own}.
+
+\begin{enumerate}
+\item[0.] Complete Part 1 of the \LaTeX\ tutorial available at \href{https://www.overleaf.com/learn/latex/Free_online_introduction_to_LaTeX_(part_1)}{Overleaf}.
+
+\item Typeset each of the following expressions below.
+	\begin{itemize}
+	\item Your name: %Type your name here (be sure to remove the comment %)
+	\item The letter z as a mathematical variable: 
+	\item The lower-case Greek letter gamma:
+	\item The upper-case Greek letter Gamma:
+	\item The integral of the sine of x with respect to x:
+	\item The fraction 67 over 92:
+	\item The set containing the numbers 1, 2, and 3:
+	\item The square root of the quantity 7 minus the natural log of t:
+	\end{itemize}
+
+\item The symbols \verb|\[...\]| may be used in place of \verb|\begin{equation*} ... \end{equation*}| for a single line of displayed mathematics (provided the \verb|amsmath| package is loaded as in this document). Type the quadratic formula (i.e. the formula which gives the solution(s) to the equation $ax^2 + bx + c = 0$) below:
+\[x = .\]
+
+\item Typeset the sentence from the image at \href{https://imgur.com/a/TSp6KBX}{https://imgur.com/a/TSp6KBX} below. Be sure that all mathematical symbols are in math mode. \\
+
+
+\item Compute the derivative of $\displaystyle \frac{x^3 + x}{2x + 1}$ (and show all steps) with respect to $x$. Use the \verb|align*| environment to place each step of the solution on a new line, aligning each new line on the equals sign. Leave your answer as a quotient of unfactored polynomials.
+\begin{align*}
+%your solution should contain at least three lines
+\frac{d}{dx} \left[\frac{x^3 + x}{2x+1}\right] &= \frac{(2x + 1)\frac{d}{dx} \cdots}{\cdots}\\
+&=\cdots
+\end{align*}
+
+\item Fill in the missing parts in the proof of the following result below (replace the \verb|\cdots|s). For the definition of \emph{odd} and a similar, sample proof, see the Section 1.4 Notes.\\
+\textbf{Theorem.} The product of two odd integers is odd.\\
+\emph{Proof.} Let $x$ and $y$ be odd integers. Then $x = \cdots$ and $y = \cdots$ for some integers $m$ and $n$. Thus,
+\[xy =  \cdots  = 2(\cdots) + 1,\] %there should be a few steps of calculation for you to show here
+and therefore there is an integer $t$, namely $t = \cdots$ such that $\cdots = 2t + 1$. Thus, by definition, $\cdots$ is odd. \qed 
+
+\end{enumerate}
+\end{document}
