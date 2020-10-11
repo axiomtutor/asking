@@ -1,9 +1,9 @@
-Title - Axler - MIRA Ch1 
+Title - Axler - MIRA Ch1
 
 * Chapter 1
 * Riemann Integration
 
-{{ Section 1 <br>
+{{ Section 1 
    Review: Riemann Integral } {
 
    {{ Definition of a *partition* }.def
