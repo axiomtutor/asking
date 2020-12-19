@@ -78,6 +78,9 @@
 
           $$ =\lim_{t\to x} \frac{f(g(t))-f(g(x))}{t-x}\cdot\frac{g(t)-g(x)}{g(t)-g(x)} = \lim_{t\to x} \frac{f(g(t))-f(g(x))}{g(t)-g(x)}\cdot \frac{g(t)-g(x)}{t-x}$$
         </p>
+        <p>
+          At this point we are itching to distribute the limit and be done.  Unfortunately, this could be invalid.  <i>g(t)-g(x)</i> could be zero.  We traditionally are protected from this in the definition of the limit of the difference quotient, because the limit definition specifically omits the choice <i>t=x</i> (and that way of defining the limit is largely motivated by precisely this reason).  But since here we no longer have this guarantee, we must be more careful.
+        </p>
       </div>
 
 
