@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes - Rudin Principles Ch5</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../notes.css">
+  </head>
+  <body>
+    <h1>Chapter 5</h1>
+    <h1>Differentiation</h1>
+
+    <h2>Section 1</h2>
+    <h2>The Derivative of a Real Function</h2>
+
+    <div>
+      <p>
+        If <i>f</i> is a real-valued function on [<i>a,b</i>] then for any \(x\in [a,b]\) we define the <b>derivative at <i>x</i></b> to be the limit of the difference quotient as \(t\to x\).
+      </p>
+      <h3>Theorem: Differentiability implies continuity.</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> We want to show that the limit of the function equals the function value,
+
+          $$ \lim_{t\to x}f(t) = f(x) $$
+
+          which we can rearrange into the difference quotient,
+
+          $$ \lim_{t\to x}(f(t)-f(x)) = 0 $$
+
+          $$ \lim_{t\to x}\left( \frac{f(t)-f(x)}{t-x} \cdot (t-x)\right) = 0 $$
+        </p>
+        <p>
+          Now by our assumption of differentiability, we can distribute the limit to each factor, it becomes \( c\cdot 0 \) for some finite real <i>c</i>.
+        </p>
+      </div>
+      <h3>Theorem: The algebra of derivatives is true.</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> That the derivative of a sum is the sum of derivatives is due to the distributivity of limits.  But to find the derivative of a product we have to find
+
+          $$ \lim_{t\to x}\frac{f(t)g(t)-f(x)g(x)}{t-x} = \lim_{t\to x}\frac{f(t)g(t)-f(t)g(x)+f(t)g(x)-f(x)g(x)}{t-x} $$
+
+          where this equality is motivated by the fact that it affords two factorings, one on the left and one on the right.
+
+          $$ = \lim_{t\to x} \frac{f(t)(g(t)-g(x)) + g(x)(f(t)-f(x))}{t-x} $$
+        </p>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
