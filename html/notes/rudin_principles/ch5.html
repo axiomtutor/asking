@@ -79,7 +79,10 @@
           $$ =\lim_{t\to x} \frac{f(g(t))-f(g(x))}{t-x}\cdot\frac{g(t)-g(x)}{g(t)-g(x)} = \lim_{t\to x} \frac{f(g(t))-f(g(x))}{g(t)-g(x)}\cdot \frac{g(t)-g(x)}{t-x}$$
         </p>
         <p>
-          At this point we are itching to distribute the limit and be done.  Unfortunately, this could be invalid.  <i>g(t)-g(x)</i> could be zero.  We traditionally are protected from this in the definition of the limit of the difference quotient, because the limit definition specifically omits the choice <i>t=x</i> (and that way of defining the limit is largely motivated by precisely this reason).  But since here we no longer have this guarantee, we must be more careful.
+          At this point we are itching to distribute the limit and be done.  Unfortunately, this could be invalid.  <i>g(t)-g(x)</i> could be zero.  We traditionally are protected from this in the definition of the limit of the difference quotient, because the definition of the limit specifically omits the choice <i>t=x</i> (and that way of defining the limit is largely motivated by precisely this reason).  But since here we no longer have this guarantee, we must be more careful.
+        </p>
+        <p>
+          So we need to consider two possibilities: We could pick points as \(t\to x\) such that \(g(t)-g(x)\ne 0\), in which case we can use the sequence theorems about limits.  Or if no such sequence exists, i.e. every sequence as \(t\to x\) must contain some points at which \(g(t)-g(x)=0\) then it must be the case that \(\lim_{t\to x}g(t)=g(x)\).  In the latter case, 
         </p>
       </div>
 
