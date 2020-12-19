@@ -67,7 +67,7 @@
           The quotient rule follows from the product and chain rules, together with the derivative of a monomial, so we prove the chain rule next.
         </p>
       </div>
-      <h3>Theorem: The chain rule, \(\frac{d}{dx}f(g(x))=f'(g(x))g(x) \).</h3>
+      <h3>Theorem: The chain rule, \(\frac{d}{dx}f(g(x))=f'(g(x))g'(x) \).</h3>
       <div class="sol">
         <p>
           <i>Explanation:</i> We need find the limit
@@ -79,12 +79,25 @@
           $$ =\lim_{t\to x} \frac{f(g(t))-f(g(x))}{t-x}\cdot\frac{g(t)-g(x)}{g(t)-g(x)} = \lim_{t\to x} \frac{f(g(t))-f(g(x))}{g(t)-g(x)}\cdot \frac{g(t)-g(x)}{t-x}$$
         </p>
         <p>
-          At this point we are itching to distribute the limit and be done.  Unfortunately, this could be invalid.  <i>g(t)-g(x)</i> could be zero.  We traditionally are protected from this in the definition of the limit of the difference quotient, because the definition of the limit specifically omits the choice <i>t=x</i> (and that way of defining the limit is largely motivated by precisely this reason).  But since here we no longer have this guarantee, we must be more careful.
+          At this point we are itching to distribute the limit and say that the left is <i>f'(g(x))</i> and the right is <i>g'(x)</i>. Unfortunately, this could be invalid.  <i>g(t)-g(x)</i> could be zero.  In most other cases we are protected from this due to how the limit is defined. Namely, limits by definition specifically omit the choice <i>t=x</i> (and that way of defining the limit is largely motivated by precisely this reason).  But since here we no longer have this guarantee, we must be more careful.
         </p>
         <p>
-          So we need to consider two possibilities: We could pick points as \(t\to x\) such that \(g(t)-g(x)\ne 0\), in which case we can use the sequence theorems about limits.  Or if no such sequence exists, i.e. every sequence as \(t\to x\) must contain some points at which \(g(t)-g(x)=0\) then it must be the case that \(\lim_{t\to x}g(t)=g(x)\).  In the latter case, 
+          So we need to consider two possibilities: We could pick points as \(t\to x\) such that \(g(t)-g(x)\ne 0\), in which case we can use the sequence theorems about limits.  In this case, we are now assured that our itching desire to distribute limits is valid, and the proof from here is easy.  If no such sequence exists, i.e. every sequence as \(t\to x\) must contain some points at which \(g(t)-g(x)=0\) then it must be the case that in fact <i>g(x)</i> is constant on some interval around <i>x</i>.  In that case <i>f(g(x))</i> is constant on the same interval and the derivative must be 0.  In this case the chain rule holds as a special case, as <i>g'(x) = 0</i>.
+        </p>
+        <p>
+          Now in fact Rudin gives an alternate proof that is also elegant and worth-while because it uses a principle we'll later have use for.  I like to start of the introduction of this principle by considering a somewhat natural object, the linearization of <i>f</i>, which we presumably remember from calculus is defined as
+
+          $$ L(x) = f'(a)(x-a)+f(a) $$
+
+          This is also the tangent line to the graph, and is the first-order approximation of <i>f</i>.  As an approximation, it's natural to also study the error, which we could call <i>e</i> and therefore define as
+
+          $$ e(x) = f(x) - L(x) $$
+        </p>
+        <p>
+          Since <i>L</i> is a first-degree polynomial and <i>f</i> is differentiable (therefore continuous), then <i>e</i> is continuous.  Also clearly <i>\lim_{x\to a}e(x)=0</i>.  
         </p>
       </div>
+
 
 
 
