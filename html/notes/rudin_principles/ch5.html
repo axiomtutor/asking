@@ -46,7 +46,7 @@
 
           $$ t^n - x^n = (t-x)\sum_{i=0}^{n-1}t^{n-1-i}x^i $$
 
-          for a direct proof.  These proof techniques only apply for \( n\in\mathbb N \).  We can again prove a base-case for <i>n=-1</i>$ and then use induction to obtain this result for all \( n\in \mathbb Z\).
+          for a direct proof.  These proof techniques only apply for \( n\in\mathbb N \).  We can again prove a base-case for <i>n=-1</i> and then use induction to obtain this result for all \( n\in \mathbb Z\).
         </p>
       </div>
       <h3>Theorem: The algebra of derivatives is true.</h3>
@@ -73,6 +73,10 @@
           <i>Explanation:</i> We need find the limit
 
           $$ \lim_{t\to x} \frac{f(g(t)) - f(g(x))}{t-x} $$
+
+          A traditionally desired, and nearly correct proof, is to identify that <i>g(t)</i> and <i>g(x)</i> are "the variables" of <i>f</i>, so to get the derivative of <i>f</i> we work these in as if they were the <i>t</i> and <i>x</i> alone.
+
+          $$ =\lim_{t\to x} \frac{f(g(t))-f(g(x))}{t-x}\cdot\frac{g(t)-g(x)}{g(t)-g(x)} = \lim_{t\to x} \frac{f(g(t))-f(g(x))}{g(t)-g(x)}\cdot \frac{g(t)-g(x)}{t-x}$$
         </p>
       </div>
 
