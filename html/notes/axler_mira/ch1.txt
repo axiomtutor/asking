@@ -3,10 +3,10 @@ Title - Axler - MIRA Ch1
 * Chapter 1
 * Riemann Integration
 
-{{ Section 1 
+{{ Section 1
    Review: Riemann Integral } {
 
-   {{ Definition of a *partition* }.def
+   {{ Definition of a *partition* }#def
     **Formal statement**: Let $a,b\in\mathbb R$ with **a<b**.  A *partition* of $[a,b]$ is a finite list of the form *x_0, x_1, ..., x_n*, where
 
     $$ a = x_0 < x_1 < \dots < x_n = b $$
@@ -14,7 +14,7 @@ Title - Axler - MIRA Ch1
     **Explanation**: This is meant to represent a sub-division of an interval, where the dividing points are chosen arbitrarily, but there are only finitely many dividing points.
    }
 
-   {{ Definition of the *infimum* and *supremum of a function* }.def
+   {{ Definition of the *infimum* and *supremum of a function* }#def
     **Formal statement**: Let **f** be a real-valued function and **A** a subset of the domain of **f**.  Then
 
     $$\inf_A f = \inf \{ f(x):x\in A\} $$

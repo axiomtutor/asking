@@ -78,7 +78,8 @@ Process the mymd
 '''
 def process_markup(text):
     # Turn bold and italics marks to HTML
-    
+    while re.search("(\A|\s)*(!\s)*"):
+        re.sub("(?:\A|\s)*(?:!\s)", "<")
 
 def process_header(line):
     # Number of stars indicates level of header.
