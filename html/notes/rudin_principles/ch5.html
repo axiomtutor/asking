@@ -39,6 +39,16 @@
           Now by our assumption of differentiability, we can distribute the limit to each factor, it becomes \( c\cdot 0 \) for some finite real <i>c</i>.
         </p>
       </div>
+      <h3>Theorem: \(\frac{d}{dx} x^n = nx^{n-1}\)</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> The proof can easily be done by induction.  Alternately, one can use the formula
+
+          $$ t^n - x^n = (t-x)\sum_{i=0}^{n-1}t^{n-1-i}x^i $$
+
+          for a direct proof.
+        </p>
+      </div>
       <h3>Theorem: The algebra of derivatives is true.</h3>
       <div class="sol">
         <p>
@@ -50,7 +60,14 @@
 
           $$ = \lim_{t\to x} \frac{f(t)(g(t)-g(x)) + g(x)(f(t)-f(x))}{t-x} $$
         </p>
+        <p>
+          Now distribute the divisor, then the limit, you get the product rule.
+        </p>
+        <p>
+          The quotient rule follows from the product and chain rule, so we prove the chain rule next.
+        </p>
       </div>
+
 
 
 
