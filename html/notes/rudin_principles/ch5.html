@@ -116,7 +116,10 @@
 
           $$ f(s)-f(g(a)) = f'(g(a))(s-g(a))+e_2(s) $$
 
+          As a final "letting", we let <i>s=g(t)</i>.  Since we will eventually take a limit let us immediately note that \(\lim_{t\to a}e_2(s) = e_2(\lim_{t\to a}s) = e_2(g(a))=0\).  Then
 
+          $$ \frac{f(g(t)) - f(g(a))}{t-a} = \frac{ f'(g(a))(s-g(a)) + e_2(s) }{t-a} $$
+          $$ = \frac{f'(g(a))(g(t)-g(a))+e_2(s)}{t-a} = \frac{f'(g(a))(g'(a)(t-a)+e(t))+e_2(s)}{t-a} $$
         </p>
       </div>
 
