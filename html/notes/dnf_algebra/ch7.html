@@ -62,13 +62,47 @@
       </p>
       <div class="ex">
         <p>
-          A very important example is \( \mathbb Z[\sqrt D] \) where <i>D</i> is a square-free integer.  We typically use the <b>field norm</b> \(N(a+b\sqrt D)=|a^2-Db^2|\) because it is multiplicative, i.e. \(N(\alpha\beta)=N(\alpha)N(\beta), and because an element is a unit if and only if \(N(\alpha)=1\).
+          A very important example is \( \mathbb Z[\sqrt D] \) where <i>D</i> is a square-free integer.  We typically use the <b>field norm</b> \(N(a+b\sqrt D)=|a^2-Db^2|\) because it is multiplicative, i.e. \(N(\alpha\beta)=N(\alpha)N(\beta)\), and because an element is a unit if and only if \(N(\alpha)=1\).
         </p>
       </div>
     </div>
 
     <h2>Section 7.2</h2>
     <h2>Polynomial Rings, Matrix Rings, Group Rings</h2>
+
+    <div>
+      <p>
+        In the example of polynomials we assume a commutative ring with identity for our coefficients.  Then the <b>ring of polynomials with coefficients in a ring</b>, <i>R[x]</i>, is a ring.  Addition is defined in the obvious way, coordinate-wise.  Multiplication is defined in the usual way, convoluting the terms.  That is to say the coefficient of the <i>x<sup>k</sup></i> is \(\sum_{i=0}^k a_ib_{k-i}\).  The degree is the largest power of a monomial with non-zero coefficient.
+      </p>
+      <h4>Theorem: The degree of a product is the sum of degrees, if both polynomials are not zero.  The only units are the constants which are also units in <i>R</i>.  <i>R[x]</i> is an integral domain.</h4>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> The degree claim is clear from the formula for the coefficients of a product.  The fact that units in <i>R</i> are units in <i>R[x]</i> is even clearer, but what is challenging is to know that no non-constant polynomial is a unit.  But of course, the degree fact just proved makes the demonstration easy.  Finally we want to see that there are no zero-divisors, but again the degree formula makes this easy.
+        </p>
+      </div>
+    </div>
+    <div>
+      <p>
+        Next we define a <b>matrix ring</b> with coordinates in <i>R</i>.  These are \(n\times n\) matrices with addition and multiplication defined in the obvious ways.
+      </p>
+      <p>
+        And finally we define <b>group rings</b> for an arbitrary commutative ring <i>R</i> with identity \(1\ne 0\) and an arbitrary group <i>G</i>.  Then the group ring <i>RG</i> is the set of all formal sums
+
+        $$\sum a_ig_i \quad a_i\in R $$
+
+        with addition and multiplication defined in the usual way.
+      </p>
+    </div>
+
+    <h2>Section 7.3</h2>
+    <h2>Ring Homomorphisms and Quotient Rings</h2>
+
+
+
+
+
+
+    
 
 
 

@@ -131,7 +131,7 @@
       <p>
         In any metric space, we say that the point <i>p</i> is a local max for the real function <i>f</i> if there is a neighborhood in which <i>f(p)</i> dominates.
       </p>
-      <h3>Theorem: For a function on a closed real interval, if the derivative exists at a local max, it is zero.</h3>
+      <h3>Theorem: For a function on a closed real interval, if the derivative exists at a local max, then the derivative is zero.</h3>
       <div class="sol">
         <p>
           <i>Explanation:</i> Of course we inspect the difference quotient on each side.  To the left it's always positive, and since the limit exists, it cannot be less than zero.  Conversely on the right, it cannot be greater than zero.
@@ -143,7 +143,26 @@
        </h3>
        <div class="sol">
          <p>
-           <i>Explanation:</i>
+           <i>Explanation:</i> Where does this equation come from?  One answer is that, so long as relevant quantities are not zero, it's equivalent to
+
+           $$ \frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f'(x)}{g'(x)} $$
+
+           This is the change in <i>f</i> over the change in <i>g</i>.  On the left that is understood to mean at the end-points, representing the net change for each function.  On the right this is at a single point in-between, using the derivatives.  This is evocative of the traditional "mean value theorem", but generalized from the case where <i>g</i> is the identity function.
+         </p>
+         <p>
+           A common technique when proving an equality in analysis is to try to pack everything to one side, so that it is a single function.  Then the goal is to prove that this is zero.  Taking the equation in the statement of the theorem, we want to show that \(h(t)=[f(b)-f(a)]g(t)-[g(b)-g(a)]f(t) \) has a derivative equal to zero somewhere (in (<i>a,b</i>)).
+         </p>
+         <p>
+           Recalling Rolle's theorem, if we want the derivative to be zero it is enough to know that the end-points take the same value.  We haven't yet proved Rolle's but it will be a simple matter shortly.  And we can easily check that indeed <i>h(a) = h(b)</i>.
+         </p>
+         <p>
+           To prove Rolle's theorem we just need that <i>f</i> increases on some interval and then the extreme value theorem dictates that it obtains a maximum inside the interval.  Eliminating the possibility of the max being at an endpoint is simple.  Then we can infer the maximum is a local maximum, so the derivative is zero by the previous theorem.  If it doesn't increase, then maybe it decreases.  If it does neither, it's constant, and the derivative is zero everywhere.
+         </p>
+       </div>
+       <h3>Theorem: A real differentiable function on (<i>a,b</i>) with non-negative derivative is montonically increasing.  If the derivative is zero the function is constant.</h3>
+       <div class="sol">
+         <p>
+           <i>Explanation:</i> For any <i>x<sub>1</sub> < x<sub>2</sub></i> in the interval, we can apply the above to infer <i>f(x<sub>2</sub>)-f(x<sub>1</sub>) = (x<sub>2</sub>-x<sub>1</sub>)f'(x)</i> for some \(x\in (a,b)\), which immediately implies the desired result.
          </p>
        </div>
     </div>
