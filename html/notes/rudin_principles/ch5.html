@@ -97,25 +97,26 @@
           Since <i>L</i> is a first-degree polynomial and <i>f</i> is differentiable (therefore continuous), then <i>e</i> is continuous.  Also clearly \(\lim_{x\to a}e(x)=0\).  If we then solve for <i>f</i> we can say that
 
           $$ f(x) = e(x) + L(x) $$
-
-          and more useful for the task at hand is to note that
-
-          $$ f(t)-f(x) = e(t)-e(x)+L(t)-L(x) $$
-
-          If in particular we are considering <i>x</i> as the fixed point, where the linearization is centered (i.e. now playing the role that <i>a</i> did above), then <i>e(x)=0</i>.  Moreover, <i>L(t)-L(x)</i> cancels the constant term leaving just <i>f'(a)(t-x)</i>.  In total then
-
-          $$ f(t)-f(x) = f'(x)(t-x)+e(t) $$
-
-          where \(\lim_{t\to x}e(t)=0\).  This is the version of the principle which we will apply to this proof.
         </p>
         <p>
-          So using the above we can now say that, for <i>f</i> and <i>g</i> in the theorem, there exist <i>u,v</i> such that
+          Now at this point it becomes increasingly important to note that the linearization is centered at <i>a</i>.  So to not switch around notation yet again, we will persist with this notation for the center.  Therefore, with this notation for the overall proof, our goal will be to analyze
 
-          $$ g(t)-g(x) = g'(x)(t-x)+u(t) $$
+          $$ \lim_{t\to a} \frac{f(g(t))-f(g(a))}{t-a} $$
+        </p>
+        <p>
+          Let the functions <i>L<sub>g</sub></i> and <i>e<sub>g</sub></i> be as above where
 
-          $$ f(s) - f(y) = f'(y)(s-y) + v(s) $$
+          $$ g(x) = L(x)+e(x) = g'(a)(x-a)+g(a)+e(x) $$
 
-          We next take <i>s</i> to in fact be the function <i>g(t)</i> and <i>y=g(x)</i>, so that <i>f(g(t))-f(g(x)) = f'(g(x))(g(t)-g(x))+v(s)</i>.  (The last <i>s</i> is left alone because when we take a limit it will go away, since as \(t\to x\) we also have \(s=g(t)\to g(x)=y\) and so \(v(s)\to 0\).
+          Then we can write
+
+          $$ g(t)-g(a)=g'(a)(t-a)+e(t)+e(a) = g'(a)(t-a)+e(t) $$
+
+          Similarly there is a second function such that
+
+          $$ f(s)-f(g(a)) = f'(g(a))(s-g(a))+e_2(s) $$
+
+
         </p>
       </div>
 
