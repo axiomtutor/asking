@@ -167,8 +167,48 @@
        </div>
     </div>
 
+    <h2>Section 5.3</h2>
+    <h2>The Continuity of Derivatives</h2>
 
+    <div>
+      <h3>Theorem: If a function is a derivative then it has the intermediate value property.</h3>
+      <div class="sol question">
+        <p>
+          <i>Explanation:</i> One half of the claim is the following. If <i>f</i> is a real function on the interval [<i>a,b</i>] and is differentiable there, and if \(f'(a) < \lambda < f'(b)\), then there exists some \(x\in (a,b)\) such that \(f'(x)=\lambda\).  The other half reverses one of the inequalities, and the proof is the same.
+        </p>
+        <p>
+          As we've seen before it may be useful to pack everything to one side and restate the problem as finding an <i>x</i> such that \(\frac{d}{dt}(f(t)-\lambda t)\) becomes 0 at <i>x</i>.  But clearly \(f(t)-\lambda t\) is continuous and therefore has the extreme value property. We would like to now conclude that <i>g</i> has an extreme value, and use the fact that the derivative is zero at an extrema.
+        </p>
+        <p>
+          However, we must be careful since the extreme value may be at <i>a</i> or at <i>b</i> where the derivative may not exist and so may not be zero.  We instead need an extrema in (<i>a,b</i>).  We can guarantee that this exists because the assumptions guarantee <i>g'(a) < 0</i> which ensures there is some point <i>t<sub>1</sub></i> such that <i>g(t<sub>1</sub>) < g(a)</i>.  So <i>g(a)</i> is not the minimum.  A similar argument shows <i>g(b)</i> is not the minimum, hence the minimum is in the interior, and hence the derivative there is zero.
+        </p>
+      </div>
+      <h3>Theorem: Functions which are derivatives do not have simple discontinuities.</h3>
+      <div class="sol question">
+        <p>
+          <i>Explanation:</i> If a derivative had a simple discontinuity then at that discontinuity the left- and right-limits would be distinct and in a neighborhood the function must fail the intermediate value property.
+        </p>
+      </div>
+    </div>
 
+    <h2>Section 5.4</h2>
+    <h2>L'Hospital's Rule</h2>
+
+    <div>
+      <h3>Theorem: L'Hospital's Rule is true.</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> We usually invoke this when we are trying to determine
+
+          $$ \lim_{x\to a} \frac{ f(x) }{ g(x) } $$
+
+          but can't because either <i>f, g</i> both go to 0 or both go to &infin;.  So then we are told we may differentiate both and then try again. Let's now make sure the logic behind what we're actually doing is clear, and start with the case that <i>f, g &rightarrow; 0</i> as <i>x&rightarrow;a</i>.  We in fact need to prove that if \(\lim_{x\to a} \frac{ f'(x) }{ g'(x) } = A\) then the solution to our original problem is also \(\lim_{x\to a} \frac{ f(x) }{ g(x) } = A\).
+        </p>
+        <p>
+          So with all that in mind, we assume <i>lim<sub>x&rightarrow;a</sub>f(x) = lim<sub>x&rightarrow;a</sub>g(x) = 0</i> and <i>lim<sub>x&rightarrow;a</sub><sup>f'(x)</sup>/<sub>g'(x)</sub> = A</i>.  The overall strategy will be to show two inequalities for <i>lim<sub>x&rightarrow;a</sub><sup>f'(x)</sup>/<sub>g'(x)</sub></i>.  All along we will assume that <i>A</i> is a finite real number, but the proof generalizes as well to the case when <i>A = &pm; &infin;</i>.
+        </p>
+      </div>
+    </div>
 
 
 
