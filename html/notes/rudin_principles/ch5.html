@@ -205,9 +205,39 @@
           but can't because either <i>f, g</i> both go to 0 or both go to &infin;.  So then we are told we may differentiate both and then try again. Let's now make sure the logic behind what we're actually doing is clear, and start with the case that <i>f, g &rightarrow; 0</i> as <i>x&rightarrow;a</i>.  We in fact need to prove that if \(\lim_{x\to a} \frac{ f'(x) }{ g'(x) } = A\) then the solution to our original problem is also \(\lim_{x\to a} \frac{ f(x) }{ g(x) } = A\).
         </p>
         <p>
-          So with all that in mind, we assume <i>lim<sub>x&rightarrow;a</sub>f(x) = lim<sub>x&rightarrow;a</sub>g(x) = 0</i> and <i>lim<sub>x&rightarrow;a</sub><sup>f'(x)</sup>/<sub>g'(x)</sub> = A</i>.  The overall strategy will be to show two inequalities for <i>lim<sub>x&rightarrow;a</sub><sup>f'(x)</sup>/<sub>g'(x)</sub></i>.  All along we will assume that <i>A</i> is a finite real number, but the proof generalizes as well to the case when <i>A = &pm; &infin;</i>.
+          So with all that in mind, we assume <i>lim<sub>x&rightarrow;a</sub>f(x) = lim<sub>x&rightarrow;a</sub>g(x) = 0</i> and <i>lim<sub>x&rightarrow;a</sub><sup>f '(x)</sup>/<sub>g'(x)</sub> = A</i>.  The overall strategy will be to show two inequalities for <i>lim<sub>x&rightarrow;a</sub><sup>f '(x)</sup>/<sub>g'(x)</sub></i>.  All along we will assume that <i>A</i> and <i>a</i> are finite real numbers, but the proof generalizes as well to the case when <i>A, a = &pm;&infin;</i>.
+        </p>
+        <p>
+          To prove first that <i>lim<sub>x&rightarrow;a</sub><sup>f &prime;(x)</sup>/<sub>g&prime;(x)</sub> &leq; A</i> we will show that for any <i>A < q</i> there is a <i>c</i> such that the region <i>a < x < c</i> requires <i>f(x)/g(x) < q</i>.  Since <i>A < q</i> is chosen arbitrarily, this entails the desired inequality.  To this end let <i>q</i> be so chosen, and in fact we will choose an even smaller value <i>A < r < q</i> because later we will arrive at an inclusive inequality when what we want is a strict inequality.
+        </p>
+        <p>
+          Now by <i>lim<sub>x&rightarrow;a</sub><sup>f &prime;(x)</sup>/<sub>g&prime;(x)</sub> = A</i> this entails the existence of a <i>c</i> such that for all <i>a < x < c</i> we have <i><sup>f &prime;(x)</sup>/<sub>g&prime;(x)</sub> < r</i>. The ratio of derivatives looks like the generalized mean value theorem, so let's try leveraging that.  We take any <i>a < x < y < r</i> and can infer
+
+          $$ \frac{f(x) - f(y)}{g(x) - g(y)} = \frac{f'(t)}{g'(t)} < r $$
+
+          for some <i>t &in; (x,y)</i>.  Now with <i>y</i> fixed we can see that as <i>x&rightarrow;a</i> we get
+
+          $$ \frac{f(y)}{g(y)} \leq r $$
+
+          Now recall that <i>y</i> was chosen arbitrarily in <i>x < y < c</i>, so since we have <i>x&rightarrow;a</i> then this holds for <i>a < y < c</i>.  So for all such <i>y</i>
+
+          $$ \frac{f(y)}{g(y)} < q $$
+
+          which delivers on the goal stated at the start.
+        </p>
+        <p>
+          The proof for the other direction of the inequality, i.e. <i>lim<sub>x&rightarrow;a</sub><sup>f &prime;(x)</sup>/<sub>g&prime;(x)</sub> &geq; A</i>, is the same.  And the various generalizations to <i>A, a = &pm;&infin;</i> are very similar.
         </p>
       </div>
+    </div>
+
+    <h2>Section 5</h2>
+    <h2>Derivatives of Higher Order</h2>
+
+    <div>
+      <p>
+        We write <i>f<sup>(n)</sup>(x)</i> for the <b><i>n</i>th derivative</b>.
+      </p>
     </div>
 
 
