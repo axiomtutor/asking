@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes - Rudin Principles Ch6</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../../css/notes.css">
+  </head>
+  <body>
+    <h1>Chapter 6</h1>
+    <h1>The Riemann-Stieltjes Integral</h1>
+
+    <h2>Section 1</h2>
+    <h2>Definition and Existence</h2>
+
+    <div>
+      <p>
+        If <i>f</i> is a real-valued function on [<i>a,b</i>] then for any \(x\in [a,b]\) we define the <b>derivative at <i>x</i></b> to be the limit of the difference quotient as \(t\to x\).
+      </p>
+      <h3>Theorem: Differentiability implies continuity.</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> We want to show that the limit of the function equals the function value,
+
+          $$ \lim_{t\to x}f(t) = f(x) $$
+
+          which we can rearrange into the difference quotient,
+
+          $$ \lim_{t\to x}(f(t)-f(x)) = 0 $$
+
+          $$ \lim_{t\to x}\left( \frac{f(t)-f(x)}{t-x} \cdot (t-x)\right) = 0 $$
+        </p>
+        <p>
+          Now by our assumption of differentiability, we can distribute the limit to each factor, it becomes \( c\cdot 0 \) for some finite real <i>c</i>.
+        </p>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -240,6 +240,81 @@
       </p>
     </div>
 
+    <h2>Section 6</h2>
+    <h2>Taylor's Theorem</h2>
+
+    <div>
+      <p>
+        We already know by a quick consequence of the Mean Value Theorem that a differentiable function can be approximated at a point, in terms of its derivative.  This is the linearization, and it is a first-degree polynomial.  The question is whether we can get successively better approximations by polynomials of greater degree.  The answer, due to Taylor's Theorem, is in the affirmative.  If the function has <i>n</i> derivatives in a neighborhood, with the first <i>n-1</i> derivatives continuous on the closure of the neighborhood, then the polynomial
+
+        $$ T_n(t) = \sum_{k=0}^n \frac{f^{(k)}(\alpha)}{k!}(t-\alpha)^k $$
+
+        with <i>&alpha;</i> chosen arbitrarily in the neighborhood, is a better approximation of <i>f</i>.  It is better in two senses that I can think of.  For one thing, the <i>n</i>th approximation agrees with <i>f</i> at all of the first <i>n</i> derivatives, but typically not at the <i>(n+1)</i>th derivative.  But the (<i>n+1</i>)th approximation does agree with <i>f</i> on the first <i>n+1</i> derivatives, so in this sense, the approximations keep getting better for each next approximation in the sequence.
+      </p>
+      <p>
+        For another thing, if you fix a particular point in the neighborhood, then so long as all the approximations exist, the limit of the approximations converges to the true value of the function.  This is one way of saying that the approximations keep getting better.  This in essence requires the concept of the pointwise convergence of functions, which we will discuss in greater details in chapter 7.  So we cannot fully cash in on this promise until then.
+      </p>
+      <p>
+        In fact none of this is guaranteed by the theorem here.  We're already delaying the claim just above for two chapters, and the claim before that about derivatives is trivial to confirm by evaluating the polynomial and its derivatives.  Here we'll just obtain a result which will prove useful later.
+      </p>
+      <p>
+        To state the claim we in fact need to define
+
+        $$ P_n(t) = \sum_{k=0}^{n-1}\frac{f^{(k)}(\alpha)}{k!}(t-\alpha)^k $$
+      </p>
+      <h3>Theorem:
+        The value <i>f(&beta;)</i> is equal to
+
+        $$ P_n(\beta) + \frac{f^n(x)}{k!}(\beta-\alpha)^n $$
+
+        for some choice of <i>x &in; (&alpha;,&beta;)</i>.
+      </h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> We define <i>M</i> by
+
+          $$ f(\beta) = P(\beta) + M(\beta-\alpha)^n $$
+
+          and now our goal is equivalent to finding some <i>x</i> as above such that <i>f<sup>(n)</sup>(x)/n! = M</i>.  We define
+
+          $$ g(t) = f(t)-P(t)-M(t-\alpha)^n $$
+
+          Taking <i>n</i> derivatives of <i>g</i> shows that we will accomplish our goal if the <i>n</i>th derivative is zero anywhere in (<i>&alpha;,&beta;</i>).  It is straight-forward to check that the first <i>n-1</i> derivatives of <i>g</i> when evaluated at <i>&alpha;</i> are zero.  This is because the <i>M(t-&alpha;)<sup>n</sup></i> obviously becomes zero.  For the rest, consider for instance <i>g(&alpha;)</i>.  <i>P(&alpha;)=f(&alpha;)</i> so those terms cancel in the zeroth derivative of <i>g</i>.  Now the same basic story holds for each other derivative up to the (<i>n-1</i>)th.
+        </p>
+        <p>
+          Now by construction of <i>M</i> it must be that <i>g(&beta;) = 0</i>.  By the mean value theorem there is some <i>x<sub>1</sub> &in; (&alpha;,&beta;)</i> such that <i>g'(x<sub>1</sub>) = 0</i>.  But now because of that, there is an <i>x<sub>2</sub> &in; (&alpha;,x<sub>1</sub>)</i> such that <i>g''(x<sub>2</sub>) = 0</i>, and an <i>x<sub>3</sub></i>, and so on.  This terminates with some <i>x<sub>n</sub></i> such that <i>g<sup>(n)</sup>(x<sub>n</sub>) = 0</i>.
+        </p>
+      </div>
+    </div>
+
+    <h2>Section 7</h2>
+    <h2>Differentiation of Vector-value Functions</h2>
+
+    <div>
+      <p>
+        Derivatives of vector-valued functions are the same, just now using the norm on <i>&Ropf;<sup>k</sup></i> for the definition of the limit.  Because of how limits are defined in this space, derivatives can be computed component-wise.  The linearity of differentiation has the same proof as always, and the product rule still holds if we only replace the product with the dot-product.
+      </p>
+      <p>
+        Differences emerge when we get to the mean value theorem and L'Hospital's Rule. And although these do not hold, the following does and is nearly as valuable.
+      </p>
+      <h3>Theorem: If <i>f&#8407;</i> is a continuous space curve, i.e. a continuous mapping of [<i>a,b</i>] into &Ropf;<sup>k</sup> and <i>f&#8407;</i> is differentiable in (<i>a,b</i>), then there is some <i>x &in; (a,b)</i> such that <i>|f&#8407;(b)-f&#8407;(a)| &leq; (b-a)|f&#8407;'(x)|</i>.</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> In order to relate this back to the mean value theorem we define a related real-value function, <i>&phi;(t) = z&#8407;&centerdot;f&#8407;(t)</i>. Now the mean value theorem implies
+
+          $$ \varphi(b)-\varphi(a) = (b-a)\varphi'(x) = (b-a)\vec z \cdot \vec f'(x) $$
+
+          But also, recalling how <i>z&#8407;</i> was defined,
+
+          $$ \varphi(b)-\varphi(a) = \vec z \cdot \vec f(b) - \vec z \cdot \vec f(a) = \vec z\cdot \vec z = |\vec z|^2 $$
+        </p>
+        <p>
+          Now apply the Schwartz inequality to <i>(b-a)z&#8407;&centerdot;f&#8407;'(x)</i>.
+        </p>
+      </div>
+    </div>
+
+
 
 
 
