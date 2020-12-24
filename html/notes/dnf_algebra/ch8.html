@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes - D&F Algebra Ch8</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../../css/notes.css">
+  </head>
+  <body>
+
+      <h1>Chapter 8</h1>
+      <h1>Euclidean Domains, PIDs, and UFDs</h1>
+
+      <h2>Section 8.1</h2>
+      <h2>Euclidean Domains</h2>
+    <div>
+      <p>
+        A <b>ring</b> is an abelian group with a * operation that distributes on the left and right.  We call the ring commutative if the * operation is.  We say it has a unitary element, 1, if it is an identity for *.
+      </p>
+      <p>
+        It is interesting to note that a ring wouldn't make sense if + were not abelian, due to the requirement for distributivity.  In particular <i>(1+1)(a+b)=a+b+a+b=a+a+b+b</i> which requires <i>a+b=b+a</i>.
+      </p>
+      <p>
+        The ring is called a <b>division ring</b> if every non-zero element has a multiplicative inverse.  If a division ring is commutative we call it a <b>field</b>.
+      </p>
+      <h4>Theorem: <i>0a = a0 = 0</i>, and <i>(-a)b=a(-b)=-ab</i>, and <i>(-a)(-b)=ab</i>, and if the ring has unity, <i>-a=-1a</i>.</h4>
+      <div class="sol">
+        <i>
+          Explanation:
+        </i>
+        <p>
+          These follow from tricky uses of the additive subgroup together with distribution.  <i>0a = (0+0)a = 0a+0a</i> so now cancel.  For the next one <i>(-a)b+ab = (-a+a)b = 0b = 0</i> making <i>ab</i> the inverse of <i>(-a)b</i>.  For the next <i>(-a)(-b)-ab = (-a)(-b)+(-a)b = -a(-b+b) = -a0 = 0</i>.  Finally, <i>(-1)a = -(1a)=-a</i>.
+        </p>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

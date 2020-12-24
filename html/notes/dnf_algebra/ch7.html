@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="content-language" content="en">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes - D&F Algebra Ch4</title>
+    <title>Notes - D&F Algebra Ch7</title>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -218,7 +218,12 @@
           Now assume that <i>A, B</i> are comaximal and let <i>a &in; A, b &in; B</i> such that <i>a+b = 1</i>.  Then <i>&phi;(a) = (0,1), &phi;(b) = (1,0)</i>.  We now show that <i>&phi;</i> is surjective by considering an arbitrary <i>(r+A, s+B)</i>.  Then <i>&phi;(as+br) = (r+A, s+B)</i>.
         </p>
         <p>
-          Finally we show that <i>A&cap;B = AB</i>.  It is always true that <i>AB &subseteq; A&cap;B</i>.  Now let <i>c &in; A&cap;B</i> and since <i>A, B</i> are comaximal let <i>x &in; A, y&in; B</i> such that <i>x+y = c</i>.
+          Finally we show that <i>A&cap;B = AB</i>.  It is always true that <i>AB &subseteq; A&cap;B</i>.  Now let <i>c &in; A&cap;B</i> and using the same <i>a+b = 1</i> as above it follows that <i>c = ca+cb &in; AB</i>.  Note that the inclusion holds because the product of rings is defined by containing all sums of all products.
+        </p>
+      </div>
+      <div>
+        <p>
+          The familiar version of the Chinese Remainder Theorem comes from first proving <i>&Zopf;/mn&Zopf; &cong; (&Zopf;/p<sub>1</sub><sup>&alpha;<sub>m</sub></sup>&Zopf;)&times;(&Zopf;/p<sub>1</sub><sup>&alpha;<sub>n</sub></sup>&Zopf;)</i>, then using the above theorem to infer that the isomorphism still holds for the group of units.
         </p>
       </div>
     </div>
