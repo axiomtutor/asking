@@ -20,24 +20,128 @@
       <h2>Euclidean Domains</h2>
     <div>
       <p>
-        A <b>ring</b> is an abelian group with a * operation that distributes on the left and right.  We call the ring commutative if the * operation is.  We say it has a unitary element, 1, if it is an identity for *.
+        In this chapter we assume all rings are commutative.  A <b>norm</b> on an integral domain <i>R</i> is any function <i>N:R&rightarrow;&Zopf;<sup>+</sup>&cup;{0}</i> with <i>N(0) = 0</i>.  If <i>N</i> takes only positive values on non-zero arguments, it is called a <b>positive norm</b>.  A ring <i>R</i> is called a <b>Euclidean domain</b> if there is a norm <i>N</i> on <i>R</i> such that for any <i>a, b &in; R</i> and if <i>b &ne; 0</i>, there are <i>q, r &in; R</i> with
+
+        $$ a = qb+r \quad \text{ with } r=0 \text{ or } N(r) < N(b) $$
+
+        We call <i>q</i> the <b>quotient</b> and <i>r</i> the <b>remainder</b>.
       </p>
       <p>
-        It is interesting to note that a ring wouldn't make sense if + were not abelian, due to the requirement for distributivity.  In particular <i>(1+1)(a+b)=a+b+a+b=a+a+b+b</i> which requires <i>a+b=b+a</i>.
+        The decreasing nature of the remainder is that it allows for successively smaller decompositions of the quotient.  That is to say it allows the chain of equalities
+
+        $$ a = q_0b+r_0 $$
+        $$ b = q_1r_0+r_1 $$
+        $$ \vdots $$
+        $$ r_{n-1} = q_{n+1}r_n $$
+
+        The first equation decomposes <i>a</i> into, so to speak, blocks of size <i>b</i> with a remainder <i>r</i>.  (Of course this is all in analogy with positive integers.)  But then we decompose the quotient itself into smaller pieces.  In fact, pieces of size <i>r</i>, but then a new remainder is left over.  So we continue the process of refinement until no further refinement is possible.
       </p>
       <p>
-        The ring is called a <b>division ring</b> if every non-zero element has a multiplicative inverse.  If a division ring is commutative we call it a <b>field</b>.
+        To make explicit the analogy, take 37 and 8.  We first find 37 = 8*4 + 5, which you can visualize as four blocks of size 8, followed by a block of 5.  But then we decompose the blocks of size 8 each into blocks of size 5.  This will allow us to now group all the blocks of size 5, but now each block of size 8 leaves behind a block of 3.  So we decompose each block of 5 into a component of size 3, and so on until we are only left with unit-sized blocks.  This merely reflects the fact that 37 and 8 have greatest common divisor equal to 1.  We will elaborate on this point below, returning back to the ring-theoretical view.
       </p>
-      <h4>Theorem: <i>0a = a0 = 0</i>, and <i>(-a)b=a(-b)=-ab</i>, and <i>(-a)(-b)=ab</i>, and if the ring has unity, <i>-a=-1a</i>.</h4>
+      <p>
+        The chain of equations above (or any algorithm which generates them) we call the <b>Euclidean algorithm</b>.
+      </p>
+      <h4>Theorem: Every ideal of a Euclidean domain is prinicpal.  </h4>
       <div class="sol">
         <i>
           Explanation:
         </i>
         <p>
-          These follow from tricky uses of the additive subgroup together with distribution.  <i>0a = (0+0)a = 0a+0a</i> so now cancel.  For the next one <i>(-a)b+ab = (-a+a)b = 0b = 0</i> making <i>ab</i> the inverse of <i>(-a)b</i>.  For the next <i>(-a)(-b)-ab = (-a)(-b)+(-a)b = -a(-b+b) = -a0 = 0</i>.  Finally, <i>(-1)a = -(1a)=-a</i>.
+          If the ideal is 0 there is nothing to prove.  Otherwise to prove that an arbitrary ideal <i>I</i> is principal, intuitively it should be the case that the generator is "small" and can then generate all the big stuff.  Since Euclidean domains are equipped with a norm which in some sense measures the size of elements, we set <i>d</i> to be any nonzero element of minimal norm and anticipate that it generates the ideal.
+        </p>
+        <p>
+          Now let <i>a &in; I</i> and "use the division algorithm" to show that <i>d</i> generates <i>a</i>.  That is to say, invoke the property of the norm that <i>a = dq+r</i> for some <i>q, r &in; R</i>.  The definition of the norm is practically built to tell us that, since <i>d</i> was chosen minimally, we cannot have a nonzero <i>r</i> such that <i>N(r) < N(d)</i>.  So we must have <i>r=0</i>.  But then <i>a = dq</i> and therefore <i>a &in; (d)</i>.
+        </p>
+      </div>
+      <p>
+        We say that <i>a</i> <b>is a multiple of </b> <i>b</i> if there is some <i>x</i> such that <i>a=bx</i> (assuming <i>b &ne; 0</i>).  We also say for the same thing, that <i>b</i> <b>divides</b> <i>a</i> and write for this <i>b | a</i>.  An element <i>d</i> is a <b>common divisor</b> of <i>a, b</i> if it divides each.  A <b>greatest common divisor</b> will be the greatest element from the set of divisors, where "greatness" is measured by divisibility.  That is to say, <i>x</i> is greater than <i>y</i> in this context, if <i>y|x</i>.
+      </p>
+      <p>
+        It is worth noting that <i>a</i> being a multiple of <i>b</i>, in the language of rings, is the same as being in the ideal generated by <i>b</i>.  In fact this is even equivalent to <i>(a) &subseteq; (b)</i>.  Thereby a common divisor is an element which generates an ideal containing both of the other ideals, and a greatest common divisor generates an ideal contained in all of the ideals of all common divisors.
+      </p>
+      <p>
+        The following theorem's proof reiterates many of these ideas.  It is worth emphasizing that the theorem is only a sufficient, and not a necessary, condition.
+      </p>
+      <h4>Theorem: If <i>a &ne; 0 &ne; b</i> generate some principal ideal, i.e. if <i>(a,b) = (d)</i>, then <i>d</i> is the GCD of <i>a</i> and <i>b</i>.</h4>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> Certainly <i>a &in; (d)</i> so that <i>d | a</i>, and likewise for <i>b</i>, so <i>d</i> is a common divisor.  If any <i>x</i> is also a common divisor, then <i>x &in; (a,b)</i> so <i>x &in; (d)</i> so <i>x | d</i>.  Hence, with the meaning we give to "greater than" in this setting, <i>d</i> is greater than <i>x</i>.
+        </p>
+      </div>
+      <h4>Theorem: If <i>R</i> is an integral domain and <i>d &ne; d'</i> generate the same ideal, then <i>d, d'</i> are unit multiples of each other, i.e. there exists a unit <i>u &in; R</i> such that <i>d = ud'</i>.</h4>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i>
+
+          $$ d = d'x $$
+          $$ d' = dy $$
+          $$ d = dyx $$
+          $$ d(1-yx) = 0 $$
+
+          If <i>d = 0</i> the result would have been immediate, and otherwise <i>yx = 1</i> so that <i>y</i> and <i>x</i> are units.
+        </p>
+      </div>
+      <h4>Theorem: The last remainder, <i>d=r<sub>n</sub></i>, in the Euclidean algorithm is the GCD for <i>a, b</i> (with <i>a&ne;0&ne;b</i>), and <i>(d)=(a,b)</i>.  This last implies Bezout's identity.</h4>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> In the final equation, it is immediate that the last remainder divides the one before it.  Given that fact and the equation before it, it is only slightly less immediate that the penultimate remainder divides the one before it.  Once this is established it is also quite immediate that the last remainder divides the antepenultimate.  Proceeding inductively up the chain we see that the last remainder divides every remainder in the Euclidean algorithm.  From this it follows that <i>d</i> divides <i>b</i> and from this it follows that <i>d | a</i>, so <i>d</i> is a common divisor.  If any other number, <i>d'</i>, is a common divisor, we can in fact work a similar argument but this time working from the first equation to the last, to show that <i>d' | d</i>.
+        </p>
+        <p>
+          We now have that <i>d</i> is the GCD and from the earlier theorem <i>(d) = (a,b)</i> from which everything else follows quickly.
+        </p>
+      </div>
+      <div>
+        <p>
+          For an integral domain <i>R</i> we define <i>R&#771;</i> as the set of units together with 0.  An element <i>u &in; R&#10189;R&#771;</i> is called a <b>universal side divisor</b> if for all <i>x &in; R</i> there is some <i>z &in; R&#771;</i> such that <i>u | x-z</i> in <i>R</i>.  This is a weakening of the Euclidean condition, since it says that every <i>x</i> may be written as <i>x = qu+z</i> where <i>z=0</i> or is a unit.
+        </p>
+      </div>
+      <h4>Theorem: Let <i>R</i> be an integral domain which is not a field.  If <i>R</i> is a Euclidean domain then there are universal side divisors.</h4>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> Again we take an element of minimal norm (from R&#10189;R&#771;) and expect that it may exhibit the object we seek (in this case, a universal side divisor).  Again the definition of the norm together with minimality tells us that this element of minimal norm must be a universal side divisor.
         </p>
       </div>
     </div>
+
+    <h2>Section 8.2</h2>
+    <h2>PIDs</h2>
+
+    <div>
+      <p>
+        A <b>principal ideal domain (PID)</b> is an integral domain in which every ideal is principal.  We have already seen in the previous section that every Euclidean domain is a PID.  In fact, the proofs of two theorems earlier made no necessary use of Euclideanness--they could just as well be re-stated for PIDs.
+      </p>
+      <h4>Theorem: In a PID if <i>(a,b) = (d)</i> then the GCD of <i>a, b</i> is <i>d</i>, the Bezout identity holds, and <i>d</i> is unique up to multiplication by a unit.</h4>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> Already given.
+        </p>
+      </div>
+      <div>
+        <p>
+          We've seen that maximal ideals are prime but not necessarily the converse.  However, the converse does hold in PIDs.
+        </p>
+      </div>
+      <h4>Theorem: Every nonzero prime ideal in a PID is maximal.</h4>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> If <i>(a)</i> is prime and <i>r &in; R&#10189;(a)</i>, we show that <i>(a,r) = R</i>.  Since <i>R</i> is a PID we must have <i>(a,r) = (p)</i> for some <i>p &in; R</i> and so <i>a = px</i> for some <i>x &in; R</i>.  Since we assumed <i>(a)</i> was prime, either <i>p &in; (a)</i> or <i>x &in; (a)</i>.
+        </p>
+        <p>
+          Now if <i>p &in; (a)</i> then we can show <i>r &in; (a)</i> contrary to assumption.  This follows since <i>p=ay</i> and <i>r=pz</i> so <i>r=ayz</i>.  So since <i>p &notin; (a)</i> then we must have <i>x &in; (a)</i>.  Then <i>a = p(ab)</i> so <i>a(1-pb) = 0</i> and it quickly follows that <i>p</i> is a unit.  Hence <i>(p) = R</i>.  
+        </p>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
