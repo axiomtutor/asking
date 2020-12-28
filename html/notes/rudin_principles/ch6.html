@@ -20,26 +20,195 @@
 
     <div>
       <p>
-        If <i>f</i> is a real-valued function on [<i>a,b</i>] then for any \(x\in [a,b]\) we define the <b>derivative at <i>x</i></b> to be the limit of the difference quotient as \(t\to x\).
+        Riemann defined the definite integral in terms familiar from a typical calculus course, with partitions of the <i>x</i>-axis of equal size.  We start with a more general notion of a partition:  For us a <b>partition</b> <i>P</i> of <i>[a,b]</i> is a finite set of points, <i>a = x<sub>0</sub> &leq; x<sub>1</sub> &leq; ... &leq; x<sub>n</sub> = b</i>.  We write <i>&Delta;x<sub>i</sub> = x<sub>i</sub>-x<sub>i-1</sub></i>.  We then define the <b>upper sum</b> to be
+
+        $$ U(P,f) = \sum_{i=1}^n \left(\sup_{x_{i-1}\leq x\leq x_i}f(x)\right)\Delta x_i $$
+
+        and similarly for the <b>lower sum</b>.  We then define the <b>upper Riemann integral</b> to be
+
+        $$ \overline{\int_{a}^b}f(x)\ dx = \inf_{P}U(P,f) $$
+
+        and similarly for the <b>lower Riemann integral</b>.  When the integrals agree we say that simply is the <b>Riemann integral</b>,
+
+        $$ \overline{\int_a^b}f(x) \ dx = \underline{\int_a^b}f(x) \ dx = \int_a^b f(x) \ dx $$
+
+        and when this is the case we say that <i>f</i> is <b>Riemann integrable</b> and write <i>f &in; &#x211C;</i>.
       </p>
-      <h3>Theorem: Differentiability implies continuity.</h3>
+      <p>
+        As a note, throughly this section we assume the caveat that <i>f</i> is bounded on relevant invervals, which implies the existence of the suprema and infima mentioned.
+      </p>
+      <p>
+        If <i>f</i> is bounded with <i>m &leq; f(x) &leq; M</i> on [<i>a,b</i>], then <i>m(b-a) &leq; L(P,f) &leq; U(P,f) &leq; M(b-a)</i> so that the set of all <i>L(P,f)</i> is a bounded set, and likewise for <i>U(P,f)</i>.  Then the lower and upper integrals are each defined for every bounded function.
+      </p>
+      <p>
+        We now define an integral even more general than the above.  Let <i>&alpha;</i> be a monotonically increasing function on [<i>a,b</i>].  Since <i>&alpha;(a), &alpha;(b)</i> are both finite then <i>&alpha;</i> is bounded.  We define
+
+        $$ \Delta \alpha_i = \alpha(x_i) - \alpha(x_{i-1}) $$
+
+        $$ U(P,f,\alpha) = \sum_{i=1}^n \left(\sup_{x_{i-1}< x < x_i}f(x)\right)\Delta \alpha_i $$
+
+        and likewise for <i>L(P,f,&alpha;)</i>.  We call the <b>upper Riemann-Stieltjes integral</b>
+
+        $$ \overline{\int_a^b}f\ d\alpha = \inf_{P}U(P,f,\alpha) $$
+
+        and likewise for the <b>lower Riemann-Stieltjes integral</b>.  When these last two are equal we write
+
+        $$ \int_a^b f\ d\alpha $$
+
+        for their common value, called the <b>Riemann-Stieltjes integral</b>.  When this exists we write <i>f &in; &#x211C;(&alpha;)</i> and say that <i>f</i> is integrable (in the Riemann sense) with respect to <i>&alpha;</i>.  When <i>&alpha;(x) = x</i> it is clear that the Riemann integral is a special case of the Riemann-Stieltjes.
+      </p>
+      <p>
+        A partion <i>P<sup>*</sup></i> is a <b>refinement</b> of the partition <i>P</i> if <i>P<sup>*</sup> &supseteq; P</i>.  Given two refinements, <i>P<sub>1</sub>, P<sub>2</sub></i> we call <i>P<sup>*</sup> = P<sub>1</sub> &cup; P<sub>2</sub></i> their <b>common refinement</b>.
+      </p>
+      <h3>Theorem: If <i>P<sup>*</sup></i> is a refinement of <i>P</i> then the lower and upper sums of the refinement are tighter.  (I.e. \(L(P,f,\alpha)\leq L(P^*,f,\alpha)\leq \underline{\int_a^b} f\ d\alpha \) and likewise for the upper.) </h3>
       <div class="sol">
         <p>
-          <i>Explanation:</i> We want to show that the limit of the function equals the function value,
-
-          $$ \lim_{t\to x}f(t) = f(x) $$
-
-          which we can rearrange into the difference quotient,
-
-          $$ \lim_{t\to x}(f(t)-f(x)) = 0 $$
-
-          $$ \lim_{t\to x}\left( \frac{f(t)-f(x)}{t-x} \cdot (t-x)\right) = 0 $$
+          <i>Explanation:</i> Trivially every one of these sums is bounded by the supremum (assuming the set is bounded, which is guaranteed by <i>f</i> being bounded).  I just wanted to throw that in to make evocative how I use "tight" to mean a tight approximation to the lower integral.
         </p>
         <p>
-          Now by our assumption of differentiability, we can distribute the limit to each factor, it becomes \( c\cdot 0 \) for some finite real <i>c</i>.
+          The proof is by induction on the number of extra points in <i>P<sup>*</sup></i>, so we begin by supposing there is only one extra point, call it <i>x<sup>*</sup></i> and suppose <i>x<sup>*</sup> &in; (<i>x<sub>i-1</sub></i>,<i>x<sub>i</sub></i>)</i>. (If it were on an end-point it would not be a new point and there would be nothing to prove.)  Then for each index <i>j < i</i>, the terms in <i>L(P,f,&alpha;)</i> and <i>L(P<sup>*</sup>,f,&alpha;)</i> are identical.  A similar, though slightly more complicated statement, can be made for indices greater than <i>i</i> (you just have to take care because the additional point in <i>P<sup>*</sup></i> causes a so-to-speak re-indexing of the points above <i>i</i>).  The important point is that we only need to show that
+
+          $$ \left(\sup_{x_{i-1} < x < x_i}f(x)\right)\Delta x_i \leq \left( \sup_{x_{i-1}< x < x^*}f(x)\right)(x^*-x_{i-1}) + \left( \sup_{x^*< x < x_i}f(x)\right)(x_i-x^*) $$
+
+          Of course the relationship between <i>&Delta;x<sub>i</sub></i> and <i>x<sup>*</sup>-x<sub>i-1</sub>, x<sub>i</sub>-x<sup>*</sup></i> is that <i>&Delta;x<sub>i</sub> = x<sup>*</sup>-x<sub>i-1</sub> + x<sub>i</sub>-x<sup>*</sup></i>.  And of course we can plug that in to <i>(sup<sub>x<sub>i-1</sub> < x < x<sub>i</sub></sub>f(x))&Delta;x<sub>i</sub></i> and distribute.  Combine with the straight-forward fact that the sup over a subset is smaller than the sup over a superset.
+        </p>
+      </div>
+      <h3>Theorem: Lower integrals are always smaller than upper integrals.</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> We show that the lower integral &#10780;<i> f d&alpha;</i> is a lower-bound on the set of all upper sums <i>U(P,f,&alpha;)</i>, from which the theorem will immediately result. (The choice to focus on the lower integral first is arbitrary, and a nearly identical proof can use the upper integral.)  That the lower integral is such a lower bound will result if we show that every upper sum is an upper-bound on every lower sum.
+        </p>
+        <p>
+          To show that every upper sum is an upper-bound on every lower sum, we consider arbitary partitions <i>P<sub>1</sub>, P<sub>2</sub></i> and show <i>L(P<sub>1</sub>,f,&alpha;) &leq; U(P<sub>2</sub>,f,&alpha;)</i>.  We then use their common refinement to get
+
+          $$ L(P_1,f,\alpha) \leq L(P^*,f,\alpha) $$
+          $$ U(P^*,f,\alpha) \leq U(P_2,f,\alpha) $$
+
+          from the theorem above, and so it only remains to show <i>L(P<sup>*</sup>,f,&alpha;) &leq; U(P<sup>*</sup>,f,&alpha;)</i>.  But this follows since term-by-term the sum on the left has smaller terms than the sum on the right--and this is because the inf over any set is never bigger than the sup.
+        </p>
+      </div>
+      <h3>Theorem: Being integrable is equivalent to the difference between upper and lower sums becoming arbitrarily small.</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> The claim is that <i>f &in; &#x211C;(&alpha;)</i> on [<i>a,b</i>] if and only if for every <i>&epsilon; &in; &Ropf;<sup>+</sup></i> there exists a partition <i>P</i> such that
+
+          $$ U(P,f,\alpha) - L(P,f,\alpha) < \varepsilon $$
+        </p>
+        <p>
+          For the forward direction, by the inf and sup definitions of the lower and upper integrals, there must be partitions <i>P<sub>1</sub>, P<sub>2</sub></i> such that
+
+          $$ L(P_1,f,\alpha) < \underline{\int_a^b} f\ d\alpha - \varepsilon/2 $$
+          $$ \overline{\int_a^b}f\ d\alpha + \varepsilon/2 < U(P_2,f,) $$
+
+          We then of course take the common refinement, and then a chain of familiar inequalities, together with those above, entail the desired result for this common refinement.
+        </p>
+        <p>
+          For the converse, we can show that the difference between the upper and lower integrals is non-negative and smaller than every positive number, and hence must be 0.  That it is non-negative has, from earlier results, effectively already been established.  For any positive &epsilon; we have some <i>P</i> such that
+
+          $$ U(P,f,\alpha) - L(P,f,\alpha) < \varepsilon $$
+
+          Now round the upper sum down to the upper integral, and the lower sum up to the lower integral.
+        </p>
+      </div>
+      <h3>Theorem: For any <i>&epsilon; &in; &Ropf;<sup>+</sup></i> and corresponding <i>P</i> such that <i>U(P,f,&alpha;)-L(P,f,&alpha;) < &epsilon;</i>, then for each [<i>x<sub>i-1</sub>,x<sub>i</sub></i>] and corresponding <i>s<sub>i</sub>,t<sub>i</sub> &in; [x<sub>i-1</sub>,x<sub>i</sub>]</i>, we get
+
+      $$ \sum |f(s_i)-f(t_i)|\Delta \alpha_i < \varepsilon $$
+
+      Also,
+
+      $$ \left| \sum f(t_i)\Delta \alpha_i - \int_a^b f \ d\alpha \right| < \varepsilon $$
+      </h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> The first is of course a term-by-term replacement in the difference between any upper- and lower-sum for a partition satisfying the assumption.  The second follows from
+
+          $$ L(P,f,\alpha) \leq \sum f(t_i)\Delta \alpha_i \leq U(P,f,\alpha) $$
+
+          which is due to a term-by-term analysis, and
+
+          $$ L(P,f,\alpha) \leq \int_a^b f\ d\alpha \leq U(P,f,\alpha) $$
+
+          which follows from the definitions in terms of sup and inf.
+        </p>
+      </div>
+      <h3>Theorem: All continuous real functions are integrable on [<i>a,b</i>] with respect to any &alpha;</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> We will use the machinery developed above to show that for any <i>&epsilon; &in; &Ropf;<sup>+</sup></i> there is some partition <i>P</i> such that <i>U(P,f,&alpha;)-L(P,f,&alpha;) < &epsilon;</i>.  Since this difference is <i>&sum;(sup<sub>i</sub>-inf<sub>i</sub>)&Delta;&alpha;<sub>i</sub></i> we try to find a term-by-term over-estimate of <i>sup<sub>i</sub>-inf<sub>i</sub></i>.  (Here <i>sup<sub>i</sub></i> refers to the sup of <i>f</i> over the <i>i</i>th interval, likewise for <i>inf<sub>i</sub></i>.)  This means finding a partition such that it breaks up the interval into regions where the function values are never very far apart throughout the interval.
+        </p>
+        <p>
+          In fact, if you squint hard, this kind of sounds like uniform continuity.  We want to find a sufficiently small <i>&delta; &in; &Ropf;<sup>+</sup></i> such that in <i>|x-y| < &delta;</i> the function values stay small, <i>|f(x)-f(y)| < &epsilon;</i>.  Luckily we assumed <i>f</i> is continuous, and we already know that functions continuous on a closed interval are uniformly continuous.  The hitch is that we don't want <i>&epsilon;</i> to be the bound on these intervals.  Each interval should be bounded by some <i>&eta;</i> such that <i>sup<sub>i</sub>-inf<sub>i</sub> < &eta;</i> and in turn
+
+          $$ \sum \eta\Delta \alpha_i = \eta \sum \Delta \alpha_i = \eta (\alpha(b)-\alpha(a)) < \varepsilon $$
+
+          Since a choice of such an <i>&eta;</i> must exist such that <i>&eta;(&alpha;(b)-&alpha;(a)) < &epsilon;</i>, we use this to define the choice of <i>&eta;</i>.  We then use uniform continuity to choose <i>&delta;</i> such that for all <i>x, y &in; [a,b]</i> we have that if <i>|x-y| < &delta;</i> then <i>|f(x)-f(y)| < &epsilon;</i>.  We then pick a partition such that the distance between adjacent points is never more than <i>&delta;</i>.  With all of this in places the proof that <i>U(P,f,&alpha;)-L(P,f,&alpha;) < &epsilon;</i> follows through some inequalities that we've already planned out.
+        </p>
+      </div>
+      <h3>Theorem: If <i>f</i> is monotonic and <i>&alpha;</i> is continuous then <i>f &in; &#x211C;(&alpha;)</i>.</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> This is an interesting interchange of the previous theorem, where we assumed <i>f</i> was continuous and <i>&alpha;</i> is always assumed to be monotonically increasing.  Again for each <i>&epsilon; &in; &Ropf;<sup>+</sup></i> we seek a partition <i>P</i> such that <i>U(P,f,&alpha;)-L(P,f,&alpha;) < &epsilon;</i>.  This time we focus on how a fine enough partition can make <i>&Delta;&alpha;<sub>i</sub></i> small, again using the fact that continuity on a compact set implies uniform continuity.  In particular it is convenient to take every <i>&Delta;&alpha;<sub>i</sub></i> to be of the same size <i>d</i>, so that
+
+          $$ U(P,f,\alpha) - L(P,f,\alpha) = \sum (\sup_i-\inf_i)d = d\sum (\sup_i-\inf_i) = d(f(b)-f(a)) $$
+
+          To make <i>&Delta;&alpha;<sub>i</sub> = d</i> with <i>d</i> small enough, we split up the distance <i>&alpha;(b)-&alpha;(a)</i> into <i>n</i> equal-sized pieces, taking <i>n</i> to be any natural number such that
+
+          $$ d = \frac{\alpha(b)-\alpha(a)}{n} < \varepsilon/(f(b)-f(a)) $$
+
+          Such a partition exists because <i>&alpha;</i> is continuous and therefore has the IVP.  Hence we can choose the first <i>&alpha;(x<sub>1</sub>)</i> to have exactly this value, and then <i>&alpha;(x<sub>2</sub>)</i> to have twice this value, and so on.
+        </p>
+      </div>
+      <h3>Theorem: If <i>f</i> is bounded on <i>[a,b]</i> and has only finitely many discontinuities, and <i>&alpha;</i> is continuous where <i>f</i> is discontinuous, then <i>f &in; &#x211C;(&alpha;)</i>.</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> Of course we will find a partition such that the now-familiar condition holds (difference in upper- and lower-sum less than <i>&epsilon;</i>).  Of course the problem-spots of <i>f</i>, we will cover with an interval on which <i>&alpha;</i> helps paper over this difficulty.  Namely for any discontinuity <i>x<sub>j</sub></i> of <i>f</i>, we choose <i>u<sub>j</sub>, v<sub>j</sub></i> such that <i>x<sub>j</sub> &in; (u<sub>j</sub>, v<sub>j</sub>)</i> and the sum over all <i>&alpha;(v<sub>j</sub>)-&alpha;(u<sub>j</sub>)</i> is less than <i>&epsilon;</i>.  This is possible because the continuity of <i>&alpha;</i> implies that we can make each of the <i>n</i> instances of <i>&alpha;(v<sub>j</sub>)-&alpha;(u<sub>j</sub>)</i> each have size less than <i>&epsilon;/n</i>.
+        </p>
+        <p>
+          On the parts of <i>[a, b]</i> not covered by the <i>(u<sub>j</sub>, v<sub>j</sub>)</i>, <i>f</i> is continuous and therefore (since this collection of intervals is compact) uniformly continuous.  On these intervals, employ the methods of two theorems ago.  Use <i>&delta;</i> such that for all <i>s, t</i> in these intervals, <i>|s-t| < &delta;</i> implies <i>|f(s)-f(t)| < &epsilon;</i>.  Make (finite) choices of points in these intervals such that adjacent points are never more than <i>&delta;</i> apart.
+        </p>
+        <p>
+          We've now made all of the choices of points which go into <i>P</i>.  When you expand <i>U(P,f,&alpha;)</i> each interval can be over-estimated either by one or the other of these cases.  For the intervals built around discontinuities of <i>f</i>, over-estimate <i>sup<sub>i</sub>-inf<sub>i</sub></i> with <i>2M</i> where <i>M</i> is the bound on <i>f</i>.  The over-estimate that results is a multiple of <i>&epsilon;</i> and therefore becomes arbitrarily small as <i>&epsilon;</i> is chosen small.
+        </p>
+      </div>
+      <h3>Theorem: A continuous function composed with a bounded integrable function is integrable.</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> Suppose <i>f</i> is bounded and integrable, <i>&phi;</i> continuous on the range of <i>f</i>.  Moreover, the range of <i>f</i> must lie inside of some <i>[m,M]</i> on which we assume <i>&varphi;</i> is continuous (and hence uniformly continuous).
+        </p>
+        <p>
+          Since <i>f</i> is integrable we'll try to leverage the partition which exists for it.  In fact, this will be exactly the partition which witnesses the claim.  We hope that the values of <i>f</i> will be close enough together that the "<i>&delta;</i>-condition" given by uniform continuity of <i>&phi;</i> will be satisfied.  However, no such guarantee is possible.
+        </p>
+        <p>
+          Therefore on intervals where that fails, we will bound <i>sup<sub>i</sub>-inf<sub>i</sub></i> for <i>&phi;</i> by the roughest possible bound.  Setting <i>K = sup<sub>t &in; [m,M]</sub>|&phi;(t)|</i> it then must hold that <i>sup<sub>i</sub>-inf<sub>i</sub> &leq; 2K</i>.  If this bound is rough then we must get away with it by putting a tight bound on the partition so that <i>&Delta;&alpha;<sub>i</sub></i> is small enough to compensate.  In fact it will be convenient if we choose
+
+          $$ U(P,f,\alpha)-L(P,f,\alpha) < \delta^2 $$
+
+          This entails that on any interval where <i>f</i> takes values far apart, i.e. where <i>sup<sub>i</sub>f - inf<sub>i</sub>f &geq; &delta;</i>, we can show that <i>&sum; &Delta;&alpha;<sub>i</sub> < &delta;</i>. (Note that the sum is only taken over the intervals where <i>f</i> takes values far apart.)  This follows from the equation above if we expand the left as a sum over differences of sups and infs, which round down to <i>&delta;</i>.  This is how we deliver on the attempt to make <i>&Delta;&alpha;<sub>i</sub></i> being small, as we desired above.
+        </p>
+        <p>
+          But notice that the above is what actually defines the choice of <i>P</i> for which we claim that the integrability criteria is satisfied.  On those intervals where <i>sup<sub>i</sub>f - inf<sub>i</sub>f &geq; &delta;</i>, we can reason that
+
+          $$ \sum (\sup_ih-\inf_ih)\Delta \alpha_i < \sum 2K\Delta\alpha_i < 2K\delta $$
+
+          Since we want this to become arbitrarily small, it now makes sense that we should have all along required <i>&delta; < &epsilon;</i>.  We can enforce that now with no change to anything above.
+        </p>
+        <p>
+          The above handles the case where uniform continuity could not be relied upon.  The remaining case is more obvious.  In both cases we get an upper bound which is a multiple of <i>&epsilon;</i>.
         </p>
       </div>
     </div>
+
+    <h2>Section 2</h2>
+    <h2>Properties of the Integral</h2>
+
+    <h2>Section 3</h2>
+    <h2>Integration and Differentiation</h2>
+
+    <h2>Section 4</h2>
+    <h2>Integration of Vector-valued Functions</h2>
+
+    <h2>Section 5</h2>
+    <h2>Rectifiable Curves</h2>
 
 
 

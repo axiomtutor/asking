@@ -27,7 +27,7 @@
         We call <i>q</i> the <b>quotient</b> and <i>r</i> the <b>remainder</b>.
       </p>
       <p>
-        The decreasing nature of the remainder is that it allows for successively smaller decompositions of the quotient.  That is to say it allows the chain of equalities
+        The decreasing nature of the remainder is what allows for successively smaller decompositions of the quotient.  That is to say it allows the chain of equalities to have decreasing remainders and therefore must eventually terminate:
 
         $$ a = q_0b+r_0 $$
         $$ b = q_1r_0+r_1 $$
@@ -128,7 +128,33 @@
           <i>Explanation:</i> If <i>(a)</i> is prime and <i>r &in; R&#10189;(a)</i>, we show that <i>(a,r) = R</i>.  Since <i>R</i> is a PID we must have <i>(a,r) = (p)</i> for some <i>p &in; R</i> and so <i>a = px</i> for some <i>x &in; R</i>.  Since we assumed <i>(a)</i> was prime, either <i>p &in; (a)</i> or <i>x &in; (a)</i>.
         </p>
         <p>
-          Now if <i>p &in; (a)</i> then we can show <i>r &in; (a)</i> contrary to assumption.  This follows since <i>p=ay</i> and <i>r=pz</i> so <i>r=ayz</i>.  So since <i>p &notin; (a)</i> then we must have <i>x &in; (a)</i>.  Then <i>a = p(ab)</i> so <i>a(1-pb) = 0</i> and it quickly follows that <i>p</i> is a unit.  Hence <i>(p) = R</i>.  
+          Now if <i>p &in; (a)</i> then we can show <i>r &in; (a)</i> contrary to assumption.  This follows since <i>p=ay</i> and <i>r=pz</i> so <i>r=ayz</i>.  So since <i>p &notin; (a)</i> then we must have <i>x &in; (a)</i>.  Then <i>a = p(ab)</i> so <i>a(1-pb) = 0</i> and it quickly follows that <i>p</i> is a unit.  Hence <i>(p) = R</i>.
+        </p>
+      </div>
+      <h4>Theorem: If <i>R</i> is any commutative ring such that <i>R[x]</i> is a PID, then <i>R</i> is a field.</h4>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> Since <i>R</i> is a subring of <i>R[x]</i> and <i>R[x]</i> is an integral domain, then <i>R</i> is an integral domain.  Now since <i>R &cong; R[x]/(x)</i>, then by an earlier theorem since this is an integral domain therefore <i>(x)</i> is prime.  All prime ideals are maximal and hence, going back the way we came, <i>R[x]/(x)</i> is then a field (by a similar previous theorem).
+        </p>
+      </div>
+      <div>
+        <p>
+          Because I'm not sure if I'll need the stuff about Dedekind-Hasse norms, I skip the remainder of the section.
+        </p>
+      </div>
+    </div>
+
+    <h2>Section 8.3</h2>
+    <h2>UFDs</h2>
+
+    <div>
+      <p>
+        Returning to other analogies with integers, we know that the Euclidean algorithm isn't the only method of computing the GCD of two numbers.  We can also find their prime factorizations.  In order to generalize this notion we define a nonzero, non-unit <i>r &in; R</i> to be <b>irreducible</b> in <i>R</i> if whenever <i>r = ab</i> then either <i>a</i> or <i>b</i> is a unit.  A nonzero <i>p &in; R</i> is <b>prime</b> if the ideal <i>(p)</i> is prime.  Two elements which are unit multiples of each other are called <b>associates</b> of each other.
+      </p>
+      <h4>Theorem: In an integral domain, prime elements are irreducible.</h4>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> 
         </p>
       </div>
     </div>
