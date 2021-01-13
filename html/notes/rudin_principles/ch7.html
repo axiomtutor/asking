@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes - Rudin Principles Ch6</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../../css/notes.css">
+  </head>
+  <body>
+    <h1>Chapter 7</h1>
+    <h1>Sequences and Series of Functions</h1>
+
+    <h2>Section 1</h2>
+    <h2>Discussion of the Problem</h2>
+
+    <div>
+      <p>
+        We would like to know under what conditions we can inter-change limits, <i>lim<sub>t&rightarrow;x</sub>lim<sub>n&rightarrow;&infin;</sub>f<sub>n</sub>(t) = lim<sub>n&rightarrow;&infin;</sub>lim<sub>t&rightarrow;x</sub>f<sub>n</sub>(t)</i>.  We can see from the example \(s_{m,n} = \frac{m}{m+n}\) that if you take the limit of each variable going to infinity, the order matters.
+      </p>
+    </div>
+
+    <h2>Section 2</h2>
+    <h2>Uniform Convergence</h2>
+
+    <div>
+      <p>
+        We define a sequence <i>{f<sub>n</sub>}</i> of functions to be <b>uniformly convergent</b> on a set <i>E</i> if for every <i>&epsilon; &in; &Ropf;<sup>+</sup></i> there is an integer <i>N</i> such that for all <i>n &geq; N</i>
+
+        $$ |f_n(x) - f(x)| \leq \varepsilon $$
+
+        for all <i>x &in; E</i>.  There is a Cauchy criterion for this convergence.
+      </p>
+      <h3>The Cauchy Criterion Theorem: A sequence <i>{f<sub>n</sub>}</i> converges uniformly if and only if there is an <i>N</i> such that for all <i>m,n &geq; N</i> and <i>x &in; E</i>
+
+      $$ |f_n(x)-f_m(x)| \leq \varepsilon $$
+      </h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> If the sequence uniformly converges, use the usual wiggle in trick with the triangle inequality.  If the sequence is Cauchy note that at each point the sequence of points is Cauchy and therefore converges.  Hence we so define a function, and show that the sequence converges to that function.
+        </p>
+        <p>
+          To show this, set <i>&epsilon; &in; &Ropf;<sup>+</sup></i> and find the corresponding <i>N</i>.  Since the Cauchy criterion holds for every choice of <i>m</i>, then take the limit as <i>m&rightarrow;&infin;</i>.  This leaves you with <i>f(x)</i> in place of <i>f<sub>m</sub>(x)</i> in the statement.  This then becomes the statement of uniform convergence.
+        </p>
+      </div>
+      <h3>Theorem: Suppose the sequence point-wise converges to a function.  If and only if we also have that the limit of the diameters goes to zero, <i>lim<sub>n&rightarrow;&infin;</sub>sup<sub>x&in;E</sub>|f<sub>n</sub>(x)-f(x)| = 0</i>, then the sequence uniformly converges.</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> The proof is immediate due to the definition of uniform convergence.
+        </p>
+      </div>
+      <h3>Theorem: If <i>|f<sub>n</sub>| &leq; M<sub>n</sub></i>, and if <i>&sum;M<sub>n</sub> < &infin;</i> then <i>&sum;f<sub>n</sub> < &infin;</i>. </h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> Show the Cauchy condition for the sequence of functions, which involves showing the sum from <i>m</i> to <i>n</i> becomes small.  Use the triangle inequality, then the bounds, then the fact that the series of bounds has the Cauchy property.
+        </p>
+      </div>
+    </div>
+
+    <h2>Section 3</h2>
+    <h2>Uniform Convergence and Continuity</h2>
+
+    <div>
+      <h3>Theorem: If \(f_n\overset{u}{\to} f\) on a set <i>E</i>, and if <i>x</i> is a limit point of <i>E</i>, then
+
+      $$ \lim_{t\to x}\lim_{n\to\infty}f_n(t) = \lim_{n\to\infty}\lim_{t\to x}f_n(t) $$
+
+      </h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> For each <i>n</i> we define <i>lim<sub>t&rightarrow;x</sub>f<sub>n</sub>(t) = y<sub>n</sub>(x)</i>.  That stated theorem is equivalent to showing <i>lim<sub>t&rightarrow;x</sub>f(t) = lim<sub>n&rightarrow;&infin;</sub>y<sub>n</sub>(x)</i>.
+        </p>
+      </div>
+    </div>
+
+    <h2>Section 4</h2>
+    <h2>Uniform Convergence and Integration</h2>
+
+    <h2>Section 5</h2>
+    <h2>Uniform Convergence and Differentiation</h2>
+
+    <h2>Section 6</h2>
+    <h2>Equicontinuous Families of Functions</h2>
+
+    <h2>Section 7</h2>
+    <h2>Stone-Weierstrass</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

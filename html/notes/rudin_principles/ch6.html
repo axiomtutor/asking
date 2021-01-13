@@ -188,7 +188,7 @@
         <p>
           But notice that the above is what actually defines the choice of <i>P</i> for which we claim that the integrability criteria is satisfied.  On those intervals where <i>sup<sub>i</sub>f - inf<sub>i</sub>f &geq; &delta;</i>, we can reason that
 
-          $$ \sum (\sup_ih-\inf_ih)\Delta \alpha_i < \sum 2K\Delta\alpha_i < 2K\delta $$
+          $$ \sum (\sup_ih-\inf_ih)\Delta \alpha_i \leq \sum 2K\Delta\alpha_i < 2K\delta $$
 
           Since we want this to become arbitrarily small, it now makes sense that we should have all along required <i>&delta; < &epsilon;</i>.  We can enforce that now with no change to anything above.
         </p>
@@ -201,14 +201,200 @@
     <h2>Section 2</h2>
     <h2>Properties of the Integral</h2>
 
+    <div>
+      <h3>Theorem: The familiar algebra of integrals holds.  Linearity, small functions have small integrals, splitting the bounds, ML bound.  Additionally, the "measure" of the integral (<i>&alpha;</i>) is also linear.</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> To prove distributivity over sums, i.e. <i>&int;<sub>a</sub><sup>b</sup>(f+g) = &int;<sub>a</sub><sup>b</sup>f + &int;<sub>a</sub><sup>b</sup>g</i>, we show that for any <i>&epsilon; &in; &Ropf;<sup>+</sup></i> we have
+
+          $$ \int(f+g)\ d\alpha \leq U(P, f+g, \alpha) \leq U(P,f,\alpha)+U(P,g,\alpha) < \int f\ d\alpha+\int g\ d\alpha \varepsilon $$
+
+          The first inequation is true for every partition, the second can be verified by an interval-wise rounding <i>sup(f+g) &leq; sup(f) + sup(g)</i>.  The final inequation motivates the choice of partition <i>P</i> such that <i>U(P,f,&alpha;) < &int;f d&alpha; + &epsilon;/2</i> and likewise for <i>g</i>, and the existence of such a choice is obvious (make one choice for each function then take the common refinement).
+        </p>
+        <p>
+          The proof for factoring out constants is even more obvious.
+            Small functions have small integrals: by this I mean that if <i>f &leq; g</i> on the interval of integration, then <i>&int; f d&alpha; &leq; &int; g&alpha;</i>.  The proof is obvious by an interval-wise comparison of sups.  Splitting the bounds, i.e. <i>&int;<sub>a</sub><sup>b</sup>f d&alpha; = &int;<sub>a</sub><sup>c</sup>f d&alpha; = &int;<sub>c</sub><sup>b</sup>f d&alpha;</i> follows from merely refining partition at the split point.  The ML bound is that by which, if <i>M = sup|f|</i> over the interval, and <i>L = &alpha;(b)-&alpha;(a)</i>, then <i>&int;<sub>a</sub><sup>b</sup>f d&alpha; &leq; ML</i>.  This follows from rounding every sup interval-wise up to <i>M</i>.
+        </p>
+        <p>
+          Linearity in the "measure" means <i>&int;f d(c&alpha;<sub>1</sub>+&alpha;<sub>2</sub>) = c&int;f d&alpha;<sub>1</sub>+&int;f d&alpha;<sub>2</sub></i>.  This is immediate from factoring constants out of sums and re-grouping sums.
+        </p>
+      </div>
+      <h3>Theorem: The product of integrable functions is always integrable, and the absolute value grows when distributed into an integral.</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> We can relate a product to a factorization by way of squares, and use the fact that compositions of integrable functions are integrable to show that the square of a function is integrable.  The factorization is easy to find if we just think about
+
+          $$ (f+g)^2 = f^2+2fg+g^2 $$
+
+          and solve for <i>fg</i>.  The integrability of absolute values follows also by composition.  The inequality follows by the factorization of constant multiples, choosing whichever constant makes the integral positive.  Then apply the fact that bigger functions have bigger integrals.
+        </p>
+      </div>
+      <p>
+        Define <i>u<sub>s</sub></i> to be the unit step function centered at <i>s</i>.
+        <h3>Theorem: <i>&int;f du<sub>s</sub> = f(s)</i>.</h3>
+        <div class="sol">
+          <p>
+            <i>Explanation:</i> Take any partition and refine it so that it contains <i>x < s</i>.  To the left of <i>x</i>, all terms are 0 because the unit step function is 0.  To the right, other than the partition containing <i>s</i>, the terms are 0 because <i>&Delta;u<sub>s,i</sub> = 0</i>.  On that one interval containing <i>s</i> the sup of the function and the inf become arbitrarily close to <i>f(s)</i> as we choose <i>x</i> close to <i>s</i>.
+          </p>
+        </div>
+        <h3>Theorem: The above generalizes to any countable collection of points, even when the unit step functions have non-negative coefficients so long as the series of coefficients converges.  I.e. <i>&int;<sub>a</sub><sup>b</sup>f (d&sum;u<sub>c<sub>n</sub></sub>) = &sum;c<sub>n</sub>f(s<sub>n</sub>)</i>.</h3>
+        <div class="sol">
+          <p>
+            <i>Explanation:</i> Since <i>&sum;u<sub>c<sub>n</sub></sub> &leq; &sum;c<sub>n</sub> < &infin;</i> we know that the series on the left point-wise converges at each <i>x</i>.  It is also clear that as a function of <i>x</i> it is monotonically increasing.  To show the rest, we show that the limit of the partial sums is the integral, in particular by showing that the absolute difference becomes arbitrarily small.  To that end select any <i>&epsilon; &in; &Ropf;</i> and choose a large enough index <i>N</i> such that the tail of the sum is less than <i>&epsilon;</i>.  Split the sum into those parts before and after this index and use the linearity of the "measure".  Clearly the integral over the finite sum measure becomes a finite sum.  For the infinite sum, apply the <i>ML</i> bound and notice that <i>L = &alpha;(b)-&alpha;(a) = &sum;<sub>n=N</sub><sup>&infin;</sup>u<sub>s<sub>n</sub></sub>(b)-0 &leq; &sum;c<sub>n</sub> < &epsilon;</i>.
+          </p>
+        </div>
+      </p>
+      <h3>Theorem: <i>&int;f d&alpha; = &int;f&alpha;' dx</i> where the prime mark here means the derivative.</h3>
+      <div class="sol question">
+        <p>
+          <i>Explanation:</i> We show that each side of the equation has the same upper integral, i.e. \(\overline\int_a^b f \ d\alpha = \overline \int_a^b f(x)\alpha'(x)\ dx\) by showing
+
+          $$ U(P,f,\alpha) \leq U(P,f\alpha') + \varepsilon $$
+
+          for each <i>&epsilon; &in; &Ropf;<sup>+</sup></i> and some partition <i>P</i>.  The proof in the other direction will be the same, and a proof that the lower integrals are equal is again the same.
+        </p>
+        <p>
+          As an observation before getting into the proof, notice that in <i>U(P,f&alpha;')-L(P,f&alpha;')</i> it almost seems that we could factor <i>f</i> out.  Although that's not quite true, what we can do instead is to multiply both sides of <i>U(P,&alpha;')-L(P&alpha;') < &epsilon;</i> by <i>sup|f(x)|</i> and then perhaps use this to "round down" the left-hand-side with <i>f</i>.  This will become part of one step below.
+        </p>
+        <p>
+          So to begin, let <i>P</i> be such that <i>U(P,&alpha;')-L(P,&alpha;') < &epsilon;</i>.  Apply the mean value theorem to find <i>t<sub>i</sub> &in; [x<sub>i-1</sub>,x<sub>i</sub>]</i> such that <i>&Delta;&alpha;<sub>i</sub> = &alpha;'(t<sub>i</sub>)&Delta;x<sub>i</sub></i>.  So
+
+          $$ \sum_{i=1}^n f(s_i)\Delta\alpha_i = \sum_{i=1}^n f(s_i)\alpha'(t_i)\Delta x_i $$
+
+          But also from <i>&Delta;&alpha;<sub>i</sub> = &alpha;'(t<sub>i</sub>)&Delta;x<sub>i</sub></i> it follows from an earlier theorem that if <i>s<sub>i</sub> &in; [x<sub>i-1</sub>,x<sub>i</sub>]</i> then
+
+          $$ \sum_{i=1}^n |\alpha'(s_i) - \alpha(t_i)|\Delta x_i < \varepsilon $$
+        </p>
+        <p>
+          At this point we employ the observation above.
+
+          $$ \sum_{i=1}^n M|\alpha'(s_i)-\alpha'(t_i)|\Delta x_i \leq M\varepsilon $$
+
+          $$ \sum_{i=1}^n |M\alpha'(s_i)-M\alpha'(t_i)|\Delta x_i \leq M\varepsilon $$
+
+          $$ \left|\sum_{i=1}^n M (\alpha'(s_i)-\alpha'(t_i))\Delta x_i)\right| \leq \sum_{i=1}^n |M\alpha'(s_i)-M\alpha'(t_i)|\Delta x_i \leq M\varepsilon $$
+        </p>
+      </div>
+      <h3>Change of Variables Theorem: \(\int_A^B g\ d\beta = \int_a^b f\ d\alpha\) (with the familiar assumptions).</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> Part of the familiar assumptions is that there is some transformation <i>&phi;: [A,B] &rightarrow; [a,b]</i> which is strictly increasing, such that <i>&phi;(A)=a, &phi;(B)=b</i>.  To each partition <i>P</i> of [<i>a,b</i>] there corresponds a partition (using the inverse of <i>&phi;</i>) of [<i>A,B</i>].  Another part of our assumption is that <i>f(&phi;(y))=g(y)</i> and that <i>&beta;(y) = &alpha;(&phi;(y))</i> from which it follows that the values <i>f</i> takes on each interval of <i>P</i> are the same that <i>g</i> takes on each interval of <i>Q</i>.  So the upper sums of each are the same, so are the lower, so the two sets have the same sup and inf and therefore the integrals are equal.
+        </p>
+      </div>
+    </div>
+
     <h2>Section 3</h2>
     <h2>Integration and Differentiation</h2>
+
+    <div>
+      <p>
+        We define the <b>area function</b> \(F(x) = \int_a^x f(t) \ dt\).  Correspondingly we'll talk about the <b>boundary function</b> <i>f</i>.
+      </p>
+      <h3>
+        Theorem: The area function of an integrable function is continuous.  If the boundary function is continuous at <i>x</i> then the area function is differentiable there and <i>F'(x)=f(x)</i>.
+      </h3>
+      <div class="sol question">
+        <p>
+          <i>Explanation:</i> For any <i>x,y</i> in the interval,
+
+          $$ |F(x)-F(y)| = \left|\int_x^y f(t)\ dt\right| \leq M(y-x) $$
+
+          where the first equality is due to the algebra of integrals, and the second is the ML bound with <i>M</i> a bound on <i>f</i> (which we assume exists for integrable functions).  This will help us to prove continuity:  If <i>|y-x| < &epsilon;M</i> then <i>|F(x)-F(y)| < &epsilon;</i>.
+        </p>
+        <p>
+          Now suppose <i>f</i> is continuous at <i>x<sub>0</sub></i> and for any <i>&epsilon; &in; &Ropf;<sup>+</sup></i>, set <i>&delta;</i> such that <i>|t-x<sub>0</sub>| < &delta;</i> implies that <i>|f(t)-f(x<sub>0</sub>)| < &epsilon;</i>.  We will show that
+
+          $$ \left| \frac{F(t)-F(s)}{t-s} - f(x_0) \right| < \varepsilon $$
+
+          which is to say that the difference quotient goes to <i>f(x<sub>0</sub>)</i>.  But first notice that
+
+          $$ \frac{F(t)-F(s)}{t-s} - f(x_0) = \frac{\int_s^t f(u)\ du}{t-s} - \left(\frac{t-s}{t-s}\right)f(x_0) $$
+
+          $$ = \frac{\int_s^t f(u)\ du - \left(\int_s^t 1\ du\right)f(x_0)}{t-s} = \frac{\int_s^t(f(u)-f(x_0))}{t-s} $$
+        </p>
+      </div>
+      <h3>The Fundamental Theorem of Calculus: If <i>F' = f</i> then \(\int_a^b f(x) dx = F(b) - F(a)\).</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> For any <i>&epsilon; &in; &Ropf;<sup>+</sup></i> choose a partition for <i>f</i>.  Apply the mean-value theorem to the intervals,
+
+          $$ F(x_i)-F(x_{i-1}) = f(t_i)\Delta x_i $$
+
+          so that <i>&sum; f(t<sub>i</sub>)&Delta;x_i = F(b)-F(a)</i>.  By a previous theorem
+
+          $$ \left| \sum_{i=1}^n f(t_i)\Delta \alpha_i - \int_a^b f \ d\alpha \right| < \varepsilon $$
+        </p>
+      </div>
+      <h3>Integration by Parts: \(\int u\ dv = uv - \int v\ du\).</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> Rearrange the formula into a single integral and confirm the boundary function is the derivative of the integrand.  Clearly theorems involving only constant multiples, summation, and differentation still hold.  In particular the Fundamental Theorem of Calculus holds for vectors.
+        </p>
+      </div>
+    </div>
 
     <h2>Section 4</h2>
     <h2>Integration of Vector-valued Functions</h2>
 
+    <div>
+      <p>
+        Integration of vector-valued functions goes component-wise. All theorems which involved only scalars, summation, and differentiation still hold.  In particular the Fundamental Theorem of Calculus generalizes to vectors.
+      </p>
+      <h3>Theorem: \(\left|\int_a^b \vec f \ d\alpha \right| \leq \int_a^b |\vec f|\ d\alpha\)</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> Showing that the integral on the right exists is a simple application of some theorems earlier. To show the inequation, it should evoke some sense that the Schwartz inequality is lurking here.  Indeed, we take some obvious algebraic steps
+
+          $$ \left|\int_a^b \vec f \ d\alpha \right|^2 = \sum \left(\int_a^b f_i\ d\alpha\right)^2 = \int \left(\sum f_i\int f_i \ d\alpha\right) \ d\alpha $$
+        </p>
+        <p>
+          If we're looking for a place to apply the Schwartz inequality then we're looking for a sum of products, and now we have one.  From there the rest is straight-forward algebraic steps.
+        </p>
+      </div>
+    </div>
+
     <h2>Section 5</h2>
     <h2>Rectifiable Curves</h2>
+
+    <div>
+      <p>
+        A <b>curve</b> is a continuous mapping of a real interval into <i>&Ropf;<sup>k</sup></i> and we write it as <i>&gamma;</i>. We seek to define a notion of arc-length and toward that goal we define the sum over a bunch of secant segments.
+
+        $$ \Lambda(P,\gamma) = \sum_{i=1}^n | \gamma(x_i) - \gamma(x_{i-1})| $$
+
+        The <b>arclength</b> is the supremum of this over all partitions.  If this is finite we call the curve a <b>rectifiable curve</b>.
+      </p>
+      <p>
+        We call a curve <b>continuously differentiable</b> if its derivative is continuous.
+      </p>
+      <h3>Theorem: A continuously differentiable curve is rectifiable and
+
+      $$ \Lambda(\gamma) = \int_a^b|\gamma'(t)|\ dt $$</h3>
+      <div class="sol">
+        <p>
+          <i>Explanation:</i> First we prove \(\Lambda(\gamma)\leq \int_a^b|\gamma'(t)|\ dt \) by showing that the right-hand side is an upper bound on the secant sum for any partition.  In particular we show that each term in the secant sum is smaller than a corresponding interval of the integral.  That is to say for any interval,
+
+          $$ |\gamma(x_i)-\gamma(x_{i-1})| \leq \int_{x_{i-1}}^{x_i}|\gamma'(t)|\ dt $$
+
+          This follows by first applying the fundamental theorem of calculus on the left-hand side, then using the previous theorem.
+        </p>
+        <p>
+          Next we show \(\int_a^b |\gamma'(t)|\ dt \leq \Lambda(\gamma)\).  Since this is the hard direction we imagine that this may require adding some <i>&epsilon;</i> to something and getting a corresponding partition.  The direction of the inequality tells us that we want to show \(\int_a^b|\gamma'(t)|\ dt \leq \Lambda(\gamma)+\varepsilon\).
+        </p>
+        <p>
+          Now one would naturally guess at this point that we pick a partition such that <i>&Lambda;(P,&gamma;) < &Lambda;(&gamma;) + &epsilon;</i>.  However we will soon see that such a choice would need to get refined down, so rather than doing so, let's start looking at the consideration which would prompt this refinement.  We will, as we often have before, use the fact that <i>&gamma;'</i> is uniformly continuous on [<i>a,b</i>], so let <i>&delta;</i> correspond to <i>&epsilon;</i>.  Now use <i>&delta;</i> to choose a partition such that the distance between the points is smaller than <i>&delta;</i>. Now for any points in the partition <i>&gamma;'</i> stays bounded, i.e.
+
+          $$ |\gamma'(t)|\leq|\gamma'(x_i)|+\varepsilon $$
+        </p>
+        <p>
+          Now with that in hand we can interval-by-inverval show
+
+          $$ \int_{x_{i-1}}^{x_i}|\gamma'(t)|\ dt \leq |\gamma(x_i)-\gamma(x_{i-1})| + 2\varepsilon\Delta x_i $$
+
+          by first using the ML bound with what we established above (this works in a <i>x<sub>i</sub></i>), then reinterpret this back into an integral from <i>x<sub>i-1</sub></i> to <i>x<sub>i</sub></i>, split the sum and use the triangle inequality, reserving one term for the FTC, and the other becomes another <i>&epsilon;&Delta;x<sub>i</sub></i> again by using the ML bound.  
+        </p>
+      </div>
+    </div>
 
 
 
